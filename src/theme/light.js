@@ -1,8 +1,8 @@
 export default {
     colors: {
-      primary: "#FFFFFF",
+      primary: "rgb(255, 255, 255)",
       secondary: "#595959",
-      white:"#FFFFFF"
+      white:"rgb(255, 255, 255)"
     },
     fonts: ["sans-serif", "Roboto"],
     fontSizes: {
