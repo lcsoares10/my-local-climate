@@ -18,12 +18,13 @@ describe("Theme", () => {
 
   it("should change the theme for dark", async () => {
     fireEvent.click(screen.getByText("change color"));
-    const styleCurrent = window.getComputedStyle(container.querySelector("div"));
+    const styleCurrent = window.getComputedStyle(
+      container.querySelector("div")
+    );
     expect(styleCurrent.backgroundColor).toBe(black.colors.primary);
   });
 
   it("Should have default theme like light", async () => {
     expect(styleDefault.backgroundColor).toBe(white.colors.primary);
   });
-  
 });

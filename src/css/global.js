@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -17,6 +17,6 @@ const GlobalStyles = createGlobalStyle`
     color: var(--white);
   }
 
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;

@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import Theme from "../theme";
 import GlobalStyles from "../css/global.js";
