@@ -1,11 +1,16 @@
 import { render, screen, fireEvent, getByTestId } from "@testing-library/react";
 
 import Header from "./index";
+import Theme from "../../theme";
 
 const date = new Date();
 
 describe("Header", () => {
-  const { container } = render(<Header />);
+  const { container } = render(
+    <Theme>
+      <Header />
+    </Theme>
+  );
 
   it("should view in display two text", async () => {
     const textDescriptionDeveloper = screen.getByText(
