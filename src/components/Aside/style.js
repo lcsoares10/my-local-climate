@@ -8,11 +8,6 @@ export const Aside = styled.div`
   box-shadow: -4px 5px 12px -4px #000000;
   z-index: 3;
 
-  p,
-  span {
-    color: ${(props) => props.theme.colors.secondary};
-    font-size: ${(props) => props.theme.fontSizes.medium};
-  }
   @media (max-width: ${({ theme }) => theme.media.tablet}) {
     margin-top: -50px;
     border-top-left-radius: 40px;
@@ -20,17 +15,11 @@ export const Aside = styled.div`
   }
 `;
 
-export const TextLine = styled.div`
-  margin: 25px 0px;
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const Section = styled.div`
   padding: 20px;
   h3,
   h2 {
-    font-weight: 300;
+    font-weight: 100;
     margin: 10px 0px;
     color: ${(props) => props.theme.colors.color};
   }
@@ -38,4 +27,7 @@ export const Section = styled.div`
 
 export const Article = styled.div`
   margin: 20px 0px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+  padding: 20px 10px;
 `;

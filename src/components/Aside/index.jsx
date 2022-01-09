@@ -1,4 +1,8 @@
 import React from "react";
+
+import TemperatureMaxMin from "../../components/Widgets/TemperatureMaxMin";
+import DetailWeather from "../../components/Widgets/DetailWeather";
+
 import * as S from "./style.js";
 
 function Aside({ children }) {
@@ -8,30 +12,11 @@ function Aside({ children }) {
       <S.Section>
         <h2>Detalhes Climaticos</h2>
         <S.Article>
-          <S.TextLine>
-            <p>Nuvens</p>
-            <span>100%</span>
-          </S.TextLine>
-
-          <S.TextLine>
-            <p>Precipitação</p>
-            <span>100%</span>
-          </S.TextLine>
-
-          <S.TextLine>
-            <p>Humidade</p>
-            <span>100%</span>
-          </S.TextLine>
-
-          <S.TextLine>
-            <p>Vento</p>
-            <span>100%</span>
-          </S.TextLine>
+          <DetailWeather />
         </S.Article>
+        <h3>Temperatura</h3>
         <S.Article>
-          <h3>Temperatura</h3>
-          <span>25</span>
-          <span>26</span>
+          <TemperatureMaxMin />
         </S.Article>
       </S.Section>
     </S.Aside>
