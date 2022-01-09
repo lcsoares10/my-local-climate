@@ -4,14 +4,19 @@ export const Aside = styled.div`
   flex: 20%;
   z-index: 1;
   background-color: red;
-  height: 100vh;
   background-color: ${(props) => props.theme.colors.primary};
   box-shadow: -4px 5px 12px -4px #000000;
   z-index: 3;
+
   p,
   span {
     color: ${(props) => props.theme.colors.secondary};
     font-size: ${(props) => props.theme.fontSizes.medium};
+  }
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+    margin-top: -50px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
   }
 `;
 

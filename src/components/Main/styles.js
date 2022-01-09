@@ -11,6 +11,9 @@ export const Section = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+    height: 55vh;
+  }
 `;
 
 export const Mask = styled.div`
@@ -19,13 +22,7 @@ export const Mask = styled.div`
   position: absolute;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.6);
-`;
-
-export const Aside = styled.div`
-  width: 100%;
-  max-width: 300px;
-  z-index: 1;
-  background-color: red;
-  height: 100vh;
-  background-color: ${(props) => props.theme.colors.primary};
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+    height: 55vh;
+  }
 `;
