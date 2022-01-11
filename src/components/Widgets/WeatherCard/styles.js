@@ -1,31 +1,43 @@
 import styled from "styled-components";
 
 export const WheaterCard = styled.div`
-  cursor: pointer;
+  cursor: ${({ inline }) => !inline && "pointer"};
   display: flex;
-  flex-direction: column;
+  gap: ${({ inline }) => inline && "2rem"};
+  flex-direction: ${({ inline }) => (inline ? "row" : "column")};
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid #7a7a7a;
-  box-sizing: border-box;
+  background: ${({ inline }) => !inline && "rgba(255, 255, 255, 0.08)"}; 
+  border: ${({ inline }) => !inline && "1px solid #7a7a7a"}; 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   padding: 20px 30px;
-  margin-left: 2rem;
+  margin-left: ${({ inline }) => !inline && "2rem"};
+  transition: 1s;
+  &:hover {
+    transform: ${({ hoverEffect }) => hoverEffect && "scale(1.04)"};
+    transition: ${({ hoverEffect }) => hoverEffect && "0.5s"};
+    background: ${({ hoverEffect }) => hoverEffect && "rgba(0, 0, 0, 0.5)"};
+  }
 `;
 export const Description = styled.div`
   color: ${({ theme }) => theme.colors.white};
-  font-weight: 300;
+  font-weight: ${({ inline }) => inline && 600};;
   margin-top: -15px;
+  order: ${({ inline }) => inline && 2};
+  font-size: ${({ inline }) => (inline ? "4rem" : "1rem")};
+  text-transform: capitalize;
 `;
 
 export const IconCard = styled.div`
   width: 100%;
-  max-width: 120px;
+  max-width: ${({ inline }) => (inline ? "200px" : "120px")};;
+  order: ${({ inline }) => inline && 3};
+
 `;
 
 export const TemperatureCard = styled.div`
   font-weight: 300;
-  font-size: 2rem;
+  font-size: ${({ inline }) => (inline ? "10rem" : "2rem")};
   color: ${({ theme }) => theme.colors.white};
+  order: ${({ inline }) => inline && 1};
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ForecastNextDays = styled.div`
-  border-top: 1px solid #cecece;
+  border-top: 3px solid rgba(255, 255, 255, 0.2);
   padding: 20px;
   h4 {
     font-size: ${({ theme }) => theme.fontSizes.large};

@@ -12,6 +12,7 @@ function Main({ children }) {
         <S.Mask>
           <S.Article>
             <WheaterCard
+              inline
               weather={{
                 id: 200,
                 main: "Rain",

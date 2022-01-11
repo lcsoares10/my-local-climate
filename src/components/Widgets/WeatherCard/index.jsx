@@ -3,7 +3,7 @@ import * as S from "./styles";
 import Image from "next/image";
 import { getWeatherImage } from "../../../utils/listWeatherConditions";
 
-function WeatherCard({ weather }) {
+function WeatherCard({ weather,...props}) {
   console.log(weather);
   const [gifWeatherImage, setGifWeatherImage] = useState("");
 
@@ -13,9 +13,9 @@ function WeatherCard({ weather }) {
   }, [weather]);
 
   return (
-    <S.WheaterCard>
-      <S.TemperatureCard>24</S.TemperatureCard>
-      <S.IconCard>
+    <S.WheaterCard {...props}>
+      <S.TemperatureCard {...props}>24</S.TemperatureCard>
+      <S.IconCard {...props}>
         <Image
           src={
             gifWeatherImage
@@ -25,7 +25,7 @@ function WeatherCard({ weather }) {
           alt="Picture of the author"
         />
       </S.IconCard>
-      <S.Description>{weather?.description}</S.Description>
+      <S.Description {...props}>{weather?.description}</S.Description>
     </S.WheaterCard>
   );
 }

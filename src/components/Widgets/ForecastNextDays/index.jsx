@@ -13,7 +13,7 @@ function ForecastNextDays() {
 
       <S.WrapperDays>
         {dataTest.map((day) => (
-          <WheaterCard />
+          <WheaterCard  hoverEffect/>
         ))}
       </S.WrapperDays>
     </S.ForecastNextDays>
