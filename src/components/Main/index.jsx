@@ -11,7 +11,14 @@ function Main({ children }) {
       <S.Section>
         <S.Mask>
           <S.Article>
-            <WheaterCard />
+            <WheaterCard
+              weather={{
+                id: 200,
+                main: "Rain",
+                description: "chuva moderada",
+                icon: "10d",
+              }}
+            />
             <ForecastNextDays>
               <h4>Previsão para os proximos 4 dias</h4>
             </ForecastNextDays>

@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
-import rain from "../../../../public/rain.gif";
 import Image from "next/image";
+import { getWeatherImage } from "../../../utils/listWeatherConditions";
 
-function WeatherCard() {
+function WeatherCard({ weather }) {
+  console.log(weather);
+  const [gifWeatherImage, setGifWeatherImage] = useState("");
+
+  useEffect(() => {
+    const image = getWeatherImage(weather?.id);
+    setGifWeatherImage(image);
+  }, [weather]);
+
   return (
     <S.WheaterCard>
       <S.TemperatureCard>24</S.TemperatureCard>
       <S.IconCard>
-        <Image src={rain} alt="Picture of the author" />
+        <Image
+          src={
+            gifWeatherImage
+              ? require("../../../../public/".concat(gifWeatherImage))
+              : require("../../../../public/rain.gif")
+          }
+          alt="Picture of the author"
+        />
       </S.IconCard>
-      <S.Description>chuva moderada</S.Description>
+      <S.Description>{weather?.description}</S.Description>
     </S.WheaterCard>
   );
 }
