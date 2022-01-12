@@ -3,30 +3,22 @@ import { ThemeProvider } from "styled-components";
 import dark from "./dark";
 import light from "./light";
 import defaultTheme from "./default";
+import ButtonTheme from "../components/ButtonTheme";
 
 const Theme = ({ children }) => {
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  const [themeType, setThemeType] = useState("light");
+  const toggleTheme = () =>
+    setThemeType(themeType === "light" ? "dark" : "light");
 
   return (
     <ThemeProvider
       theme={
-        theme === "light"
+        themeType === "light"
           ? { ...light, ...defaultTheme }
           : { ...dark, ...defaultTheme }
       }
     >
-      <button
-        style={{
-          position: "absolute",
-          bottom: "10px",
-          left: "10px",
-          zIndex: "99",
-        }}
-        onClick={() => toggleTheme()}
-      >
-        change color
-      </button>
+      <ButtonTheme onClick={toggleTheme} type={themeType} />
       {children}
     </ThemeProvider>
   );
