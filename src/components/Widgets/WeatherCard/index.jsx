@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./styles";
+
 import Image from "next/image";
+
 import { getWeatherImage } from "../../../utils/listWeatherConditions";
+
+import * as S from "./styles";
 
 function WeatherCard({ weather,...props}) {
   console.log(weather);
@@ -30,4 +33,4 @@ function WeatherCard({ weather,...props}) {
   );
 }
 
-export default WeatherCard;
+export default React.memo(WeatherCard);

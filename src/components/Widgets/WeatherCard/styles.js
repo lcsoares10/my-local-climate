@@ -13,11 +13,13 @@ export const WheaterCard = styled.div`
   padding: 20px 30px;
   margin-left: ${({ inline }) => !inline && "2rem"};
   transition: 1s;
+  flex-wrap:wrap
   &:hover {
     transform: ${({ hoverEffect }) => hoverEffect && "scale(1.04)"};
     transition: ${({ hoverEffect }) => hoverEffect && "0.5s"};
     background: ${({ hoverEffect }) => hoverEffect && "rgba(0, 0, 0, 0.5)"};
   }
+
 `;
 export const Description = styled.div`
   color: ${({ theme }) => theme.colors.white};
@@ -26,12 +28,19 @@ export const Description = styled.div`
   order: ${({ inline }) => inline && 2};
   font-size: ${({ inline }) => (inline ? "4rem" : "1rem")};
   text-transform: capitalize;
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+    font-size: 3rem !important;
+  }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 2rem !important;
+  }
 `;
 
 export const IconCard = styled.div`
   width: 100%;
   max-width: ${({ inline }) => (inline ? "200px" : "120px")};;
   order: ${({ inline }) => inline && 3};
+  min-width: 100px;
 
 `;
 
@@ -40,4 +49,10 @@ export const TemperatureCard = styled.div`
   font-size: ${({ inline }) => (inline ? "10rem" : "2rem")};
   color: ${({ theme }) => theme.colors.white};
   order: ${({ inline }) => inline && 1};
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+    font-size: 8rem !important;
+  }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 5rem !important;
+  }
 `;
