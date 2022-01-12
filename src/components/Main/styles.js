@@ -18,7 +18,7 @@ export const Section = styled.div`
 
 export const Mask = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 35px);
   position: absolute;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.6);
