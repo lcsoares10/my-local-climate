@@ -1,14 +1,13 @@
 import Image from "next/image";
 import chuva from "../../../public/chuva.svg";
 
-const MyImage = (props) => {
+const MyImage: React.FC = () => {
   return (
     <Image
       src={chuva}
       alt="Picture of the author"
       layout="fill"
       objectFit="cover"
-      style={{ zIndex: "1" }}
     />
   );
 };

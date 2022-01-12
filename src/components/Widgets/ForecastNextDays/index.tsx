@@ -1,11 +1,9 @@
 import React from "react";
 import * as S from "./styles";
-import rain from "../../../../public/rain.gif";
-import Image from "next/image";
 
 import WheaterCard from "../WeatherCard";
 
-function ForecastNextDays() {
+const ForecastNextDays: React.FC = () => {
   const dataTest = [1, 2, 3, 4];
   return (
     <S.ForecastNextDays>
@@ -13,11 +11,19 @@ function ForecastNextDays() {
 
       <S.WrapperDays>
         {dataTest.map((day) => (
-          <WheaterCard  hoverEffect/>
+          <WheaterCard
+            weather={{
+              id: 200,
+              main: "Rain",
+              description: "chuva moderada",
+              icon: "10d",
+            }}
+            hoverEffect
+          />
         ))}
       </S.WrapperDays>
     </S.ForecastNextDays>
   );
-}
+};
 
 export default ForecastNextDays;

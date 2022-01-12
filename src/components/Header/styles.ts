@@ -14,5 +14,5 @@ export const Header = styled.header`
 
 export const Text = styled.p`
   font-size: ${(props) => props.theme.fontSizes.small};
-  color: ${(props) => props.theme.colors.color};
+  color: ${(props) => props.theme.colors.main};
 `;

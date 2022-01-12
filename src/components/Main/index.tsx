@@ -5,7 +5,7 @@ import WheaterCard from "../Widgets/WeatherCard";
 import ForecastNextDays from "../Widgets/ForecastNextDays";
 import Image from "../Image";
 
-function Main({ children }) {
+const Main: React.FC = ({ children }) => {
   return (
     <S.Main>
       <S.Section>
@@ -29,6 +29,6 @@ function Main({ children }) {
       </S.Section>
     </S.Main>
   );
-}
+};
 
 export default Main;

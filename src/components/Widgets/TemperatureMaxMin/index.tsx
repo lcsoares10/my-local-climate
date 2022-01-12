@@ -1,7 +1,20 @@
 import React, { memo } from "react";
-import * as S from "./styles.js";
+import * as S from "./styles";
 
-function TemperatureMaxMin({ isLabel, label, colorMax, colorMin, ...props }) {
+export type TemperatureMaxMinProps = {
+  isLabel?: string;
+  label?: string;
+  colorMax?: string;
+  colorMin?: string;
+};
+
+function TemperatureMaxMin({
+  isLabel,
+  label,
+  colorMax,
+  colorMin,
+  ...props
+}: TemperatureMaxMinProps) {
   return (
     <S.Container {...props}>
       {isLabel && <S.Label>{label}</S.Label>}

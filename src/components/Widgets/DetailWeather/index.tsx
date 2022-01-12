@@ -1,6 +1,5 @@
 import React from "react";
-import * as S from "./styles.js";
-// import { Container } from './styles';
+import * as S from "./styles";
 
 function DetailWeather() {
   return (

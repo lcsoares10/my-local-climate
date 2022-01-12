@@ -1,4 +1,5 @@
-export default {
+import { DefaultTheme } from "styled-components/native";
+const light: DefaultTheme = {
   colors: {
     primary: "rgb(255, 255, 255)",
     secondary: "#595959",
@@ -6,3 +7,5 @@ export default {
     color: "#262626",
   },
 };
+
+export default light;

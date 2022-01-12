@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import dark from "./dark";
 import light from "./light";
-import defaultTheme from "./default";
+import { defaultTheme } from "./default";
 import ButtonTheme from "../components/ButtonTheme";
 
-const Theme = ({ children }) => {
+const Theme: React.FC = ({ children }) => {
   const [themeType, setThemeType] = useState("light");
-  const toggleTheme = () =>
+  const toggleTheme = () => {
     setThemeType(themeType === "light" ? "dark" : "light");
+  };
 
   return (
     <ThemeProvider

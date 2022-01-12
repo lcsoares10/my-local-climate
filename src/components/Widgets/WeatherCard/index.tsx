@@ -6,17 +6,29 @@ import { getWeatherImage } from "../../../utils/listWeatherConditions";
 
 import * as S from "./styles";
 
-function WeatherCard({ weather,...props}) {
-  console.log(weather);
-  const [gifWeatherImage, setGifWeatherImage] = useState("");
+type WeatherProps = {
+  id: number;
+  main: String;
+  description: String;
+  icon: String;
+};
 
+export type WeatherCardProps = {
+  weather: WeatherProps;
+  hoverEffect?: boolean;
+  inline?: boolean;
+};
+
+const WeatherCard = ({ ...props }: WeatherCardProps) => {
+  const [gifWeatherImage, setGifWeatherImage] = useState("");
+  const { weather } = props;
   useEffect(() => {
     const image = getWeatherImage(weather?.id);
     setGifWeatherImage(image);
   }, [weather]);
 
   return (
-    <S.WheaterCard {...props}>
+    <S.WeatherCard {...props}>
       <S.TemperatureCard {...props}>24</S.TemperatureCard>
       <S.IconCard {...props}>
         <Image
@@ -29,8 +41,8 @@ function WeatherCard({ weather,...props}) {
         />
       </S.IconCard>
       <S.Description {...props}>{weather?.description}</S.Description>
-    </S.WheaterCard>
+    </S.WeatherCard>
   );
-}
+};
 
 export default React.memo(WeatherCard);

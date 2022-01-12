@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Main from "../components/Main";
 import Row from "../components/Row";
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <Theme>
       <Header />
@@ -19,4 +19,5 @@ export default function Home() {
       <GlobalStyles />
     </Theme>
   );
-}
+};
+export default Home;

@@ -1,11 +1,11 @@
 import React from "react";
 
-import TemperatureMaxMin from "../../components/Widgets/TemperatureMaxMin";
-import DetailWeather from "../../components/Widgets/DetailWeather";
+import TemperatureMaxMin from "../Widgets/TemperatureMaxMin";
+import DetailWeather from "../Widgets/DetailWeather";
 
-import * as S from "./style.js";
+import * as S from "./style";
 
-function Aside({ children }) {
+const Aside: React.FC = ({ children }) => {
   return (
     <S.Aside>
       {children}
@@ -21,6 +21,6 @@ function Aside({ children }) {
       </S.Section>
     </S.Aside>
   );
-}
+};
 
 export default Aside;

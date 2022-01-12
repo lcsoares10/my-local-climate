@@ -20,7 +20,7 @@ export const Section = styled.div`
   h2 {
     font-weight: 100;
     margin: 10px 0px;
-    color: ${(props) => props.theme.colors.color};
+    color: ${(props) => props.theme.colors.main};
   }
 `;
 

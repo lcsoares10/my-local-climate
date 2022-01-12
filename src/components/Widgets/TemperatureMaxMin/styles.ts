@@ -1,21 +1,26 @@
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import { ArrowUpward } from "@styled-icons/material/ArrowUpward";
 import { ArrowDownward } from "@styled-icons/material/ArrowDownward";
+import { TemperatureMaxMinProps } from "./index";
 
-export const IconArrowMax = styled(ArrowUpward)`
+export const IconArrowMax = styled(ArrowUpward)<TemperatureMaxMinProps>`
   color: ${({ colorMax }) => (colorMax ? colorMax : "#F29292")} !important;
 `;
-export const IconArrowMin = styled(ArrowDownward)`
+export const IconArrowMin = styled(ArrowDownward)<TemperatureMaxMinProps>`
   color: ${({ colorMin }) => (colorMin ? colorMin : "#78C2E1")}!important;
 `;
 
-export const Container = styled.div`
+type ContainerProps = {
+  backgroundColor?: CSSObject;
+};
+export const Container = styled.div<ContainerProps>`
   display: flex;
   background-color: ${({ backgroundColor }) =>
     backgroundColor ? backgroundColor : "none"};
   flex-direction: column;
   align-items: center;
 `;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,7 +46,7 @@ export const MaxDetail = styled.div`
 
 export const MinDetail = styled(MaxDetail)``;
 
-export const TemperatureMax = styled.span`
+export const TemperatureMax = styled.span<TemperatureMaxMinProps>`
   font-size: 6rem !important;
   font-weight: 900;
   color: ${({ colorMax }) => (colorMax ? colorMax : "#F29292")} !important;
@@ -53,7 +58,7 @@ export const TemperatureMax = styled.span`
   }
 `;
 
-export const TemperatureMin = styled(TemperatureMax)`
+export const TemperatureMin = styled(TemperatureMax)<TemperatureMaxMinProps>`
   color: ${({ colorMin }) => (colorMin ? colorMin : "#78C2E1")}!important;
 `;
 

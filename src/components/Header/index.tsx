@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styles";
 import Container from "../Container";
 
-function Header() {
+const Header: React.FC = () => {
   const date = new Date();
 
   return (
@@ -13,6 +13,6 @@ function Header() {
       </S.Header>
     </Container>
   );
-}
+};
 
 export default Header;

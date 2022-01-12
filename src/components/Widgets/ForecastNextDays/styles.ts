@@ -18,6 +18,4 @@ export const WrapperDays = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px 20px;
   margin-top: 2rem;
-  
-
 `;
