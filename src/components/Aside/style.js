@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Aside = styled.div`
   flex: 20%;
   z-index: 1;
-  background-color: red;
   background-color: ${(props) => props.theme.colors.primary};
   box-shadow: -4px 5px 12px -4px #000000;
   z-index: 3;
