@@ -3,11 +3,11 @@ import * as S from "./styles";
 
 import WheaterCard from "../WeatherCard";
 
-const ForecastNextDays: React.FC = () => {
+const ForecastNextDays: React.FC = ({children}) => {
   const dataTest = [1, 2, 3, 4];
   return (
     <S.ForecastNextDays>
-      <h4>Previsão para os proximos 4 dias</h4>
+      {children}
 
       <S.WrapperDays>
         {dataTest.map((day) => (
