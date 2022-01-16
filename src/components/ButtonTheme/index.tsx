@@ -12,7 +12,7 @@ const ButtonTheme = ({ ...props }: ButtonThemeProps) => {
   const { type } = props;
 
   return (
-    <S.Container {...props}>
+    <S.Container id="button_theme" {...props}>
       {type !== "light" && <LightMode size={30} color="white" />}
       {type !== "dark" && <DarkMode size={30} color="rgb(38,38,38)" />}
     </S.Container>

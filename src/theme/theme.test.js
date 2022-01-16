@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, getByTestId } from "@testing-library/react";
 import Theme from "./index";
-import black from "./dark";
-import white from "./light";
+import dark from "./dark";
+import light from "./light";
 import styled from "styled-components";
 
 const TestDivBackground = styled.div`
@@ -17,14 +17,17 @@ describe("Theme", () => {
   const styleDefault = window.getComputedStyle(container.querySelector("div"));
 
   it("should change the theme for dark", async () => {
-    fireEvent.click(screen.getByText("change color"));
+
+    fireEvent.click(container.querySelector("#button_theme"));
+
     const styleCurrent = window.getComputedStyle(
       container.querySelector("div")
     );
-    expect(styleCurrent.backgroundColor).toBe(black.colors.primary);
+
+    expect(styleCurrent.backgroundColor).toBe(dark.colors.primary);
   });
 
   it("Should have default theme like light", async () => {
-    expect(styleDefault.backgroundColor).toBe(white.colors.primary);
+    expect(styleDefault.backgroundColor).toBe(light.colors.primary);
   });
 });

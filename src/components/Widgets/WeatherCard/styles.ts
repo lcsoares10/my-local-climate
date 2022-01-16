@@ -14,7 +14,9 @@ export const WeatherCard = styled.div<WeatherCardProps>`
   padding: 20px 30px;
   margin-left: ${({ inline }) => !inline && "2rem"};
   transition: 1s;
-  flex-wrap:wrap &:hover {
+  flex-wrap: wrap;
+
+  &:hover {
     transform: ${({ hoverEffect }) => hoverEffect && "scale(1.04)"};
     transition: ${({ hoverEffect }) => hoverEffect && "0.5s"};
     background: ${({ hoverEffect }) => hoverEffect && "rgba(0, 0, 0, 0.5)"};

@@ -4,7 +4,7 @@ const dark: DefaultTheme = {
     primary: "rgb(38, 38, 38)",
     secondary: "#595959",
     white: "rgb(255, 255, 255)",
-    color: "rgb(255, 255, 255)",
+    main: "rgb(255, 255, 255)",
   },
 };
 
