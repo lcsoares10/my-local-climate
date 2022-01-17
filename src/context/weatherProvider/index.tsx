@@ -1,58 +1,42 @@
 import React, { createContext, useMemo, useState, useEffect } from "react";
+import useSWR from "swr";
+import { fetcher } from "../../services/api";
+import useMyGeolocation from "../../hooks/useMyGeolocation";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const WeatherContext = createContext({});
 
 function WeatherProvider({ children }) {
-  const [weatherCurrent, setWeatherCurrent] = useState({});
+  const [weatherCurrent, setWeatherCurrent] = useState();
 
-  const handleGetDataWeather = () =>
-    setWeatherCurrent({
-      coord: {
-        lon: -42.9897,
-        lat: -22.9627,
-      },
-      weather: [
-        {
-          id: 211,
-          main: "Thunderstorm",
-          description: "trovoadas",
-          icon: "11n",
-        },
-      ],
-      base: "stations",
-      main: {
-        temp: 27.79,
-        feels_like: 31.3,
-        temp_min: 26.96,
-        temp_max: 27.94,
-        pressure: 1010,
-        humidity: 78,
-      },
-      visibility: 10000,
-      wind: {
-        speed: 4.12,
-        deg: 200,
-      },
-      clouds: {
-        all: 75,
-      },
-      dt: 1642369622,
-      sys: {
-        type: 1,
-        id: 8429,
-        country: "BR",
-        sunrise: 1642321217,
-        sunset: 1642369362,
-      },
-      timezone: -10800,
-      id: 3473648,
-      name: "Icaraí",
-      cod: 200,
-    });
+  const { coords, loading } = useMyGeolocation();
+  const { data, error } = useSWR(
+    !loading ? `forecast?lat=${coords.latitude}&lon=${coords.longitude}` : null,
+    fetcher
+  );
+
+  const handleGetDataWeather = () => {
+    console.log(data)
+    setWeatherCurrent(data);
+  };
 
   useEffect(() => {
     handleGetDataWeather();
-  }, []);
+  }, [data]);
+
+  useEffect(() => {
+    if (error)
+      toast.error("Desculpe, ocorreu um erro!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+  }, [error]);
 
   const value = useMemo(
     () => ({
@@ -62,7 +46,10 @@ function WeatherProvider({ children }) {
   );
 
   return (
-    <WeatherContext.Provider value={value}>{children}</WeatherContext.Provider>
+    <WeatherContext.Provider value={value}>
+      <ToastContainer />
+      {children}
+    </WeatherContext.Provider>
   );
 }
 
