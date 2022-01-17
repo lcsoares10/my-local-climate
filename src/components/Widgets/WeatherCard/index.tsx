@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {IWeatherResponse,ICurrentWeather,IDailyWeather,TWeather} from '../../../types/wheatherData'
 
 import Image from "next/image";
 
@@ -6,21 +7,21 @@ import { getWeatherImage } from "../../../utils/listWeatherConditions";
 
 import * as S from "./styles";
 
-type WeatherProps = {
-  id: number;
-  main: String;
-  description: String;
-  icon: String;
+type TTemperature  = {
+  temp:number;
 };
 
-export type WeatherCardProps = {
-  weather: WeatherProps;
+export type WeatherCardProps  = {
+  weather: TWeather &  TTemperature;
   hoverEffect?: boolean;
   inline?: boolean;
+  
 };
 
 const WeatherCard = ({ ...props }: WeatherCardProps) => {
   const [gifWeatherImage, setGifWeatherImage] = useState("");
+
+  console.log(props)
   const { weather } = props;
   useEffect(() => {
     const image = getWeatherImage(weather?.id);
@@ -29,7 +30,7 @@ const WeatherCard = ({ ...props }: WeatherCardProps) => {
 
   return (
     <S.WeatherCard {...props}>
-      <S.TemperatureCard {...props}>24</S.TemperatureCard>
+      <S.TemperatureCard {...props}>{weather?.temp?.toFixed(0)}</S.TemperatureCard>
       <S.IconCard {...props}>
         <Image
           src={
