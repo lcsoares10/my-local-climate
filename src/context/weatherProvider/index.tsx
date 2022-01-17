@@ -12,7 +12,7 @@ function WeatherProvider({ children }) {
 
   const { coords, loading } = useMyGeolocation();
   const { data, error } = useSWR(
-    !loading ? `forecast?lat=${coords.latitude}&lon=${coords.longitude}` : null,
+    !loading ? `onecall?lat=${coords.latitude}&lon=${coords.longitude}` : null,
     fetcher
   );
 

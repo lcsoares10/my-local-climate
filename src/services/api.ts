@@ -7,7 +7,7 @@ const appid = process.env.NEXT_PUBLIC_KEY_OPEN_WEATHER || ''
 
 const apiAxios = axios.create({
     baseURL:urlApiWheater,
-    params:{appid,lang:'pt_br'},
+    params:{appid,lang:'pt_br',exclude:'minutely,hourly,alerts'},
     
 });
 
