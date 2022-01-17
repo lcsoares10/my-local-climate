@@ -24,7 +24,7 @@ const WeatherCard = ({ ...props }: WeatherCardProps) => {
   console.log(props)
   const { weather } = props;
   useEffect(() => {
-    const image = getWeatherImage(weather?.id);
+    const image = getWeatherImage(weather?.id,true);
     setGifWeatherImage(image);
   }, [weather]);
 

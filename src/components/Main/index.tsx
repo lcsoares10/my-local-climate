@@ -5,7 +5,7 @@ import * as S from "./styles";
 import WheaterCard from "../Widgets/WeatherCard";
 
 import ForecastNextDays from "../Widgets/ForecastNextDays";
-import Image from "../Image";
+import ImageBackgroundWeather from "../ImageBackgroundWeather";
 
 const Main: React.FC = () => {
 
@@ -27,7 +27,7 @@ const Main: React.FC = () => {
             </ForecastNextDays>
           </S.Article>
         </S.Mask>
-        <Image />
+        <ImageBackgroundWeather id_weather={weather?.id} />
       </S.Section>
     </S.Main>
   );
