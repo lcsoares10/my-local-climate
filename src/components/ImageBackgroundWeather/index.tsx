@@ -17,10 +17,11 @@ const ImageBackgroundWeather: React.FC<Props> = ({ id_weather }) => {
 
   return (
     <Image
+    placeholder="blur"
     src={
       image
         ? require("../../../public/".concat(image))
-        : require("../../../public/rain.gif")
+        : require("../../../public/clear.jpg")
     }
       alt="Picture of the author"
       layout="fill"
