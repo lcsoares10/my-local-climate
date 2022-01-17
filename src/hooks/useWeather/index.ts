@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { WeatherContext } from "../../context/weatherProvider";
 
-export default function useCurriculum() {
+export default function useWeather() {
   const weatherLocal = useContext(WeatherContext);
 
   if (!weatherLocal) {
