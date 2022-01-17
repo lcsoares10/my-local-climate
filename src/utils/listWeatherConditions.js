@@ -23,7 +23,7 @@ const WeatherConditions = [
     image: "rain.gif",
   },
   {
-    range_id: [800],
+    range_id: [790,800],
     main: "Clear",
     image: "sun.gif",
   },
