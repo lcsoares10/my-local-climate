@@ -9,9 +9,10 @@ import DetailWeather from "../Widgets/DetailWeather";
 import * as S from "./style";
 
 const Aside: React.FC = ({ children }) => {
-  const {getWeatherCurrentWithDaily} = useWeather()
+  const {getWeatherCurrentWithDaily,getDataDaySelected,selectedDay} = useWeather()
 
-  const { pop, uvi, clouds, humidity, wind_speed,temp } = getWeatherCurrentWithDaily
+
+  const { pop, uvi, clouds, humidity, wind_speed,temp } = selectedDay && getDataDaySelected() || getWeatherCurrentWithDaily
 
 
   return (
