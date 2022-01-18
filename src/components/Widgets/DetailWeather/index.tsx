@@ -1,27 +1,41 @@
 import React from "react";
 import * as S from "./styles";
+import { TWeatherCurrentWithDaily } from "../../../context/weatherProvider";
 
-function DetailWeather() {
+type TPropsDetailWeather = Pick<
+  TWeatherCurrentWithDaily,
+  "pop" | "uvi" | "clouds" | "humidity" | "wind_speed"
+>;
+
+function DetailWeather({ ...props }: TPropsDetailWeather) {
+
+  const { pop, uvi, clouds, humidity, wind_speed } = props;
+
   return (
     <>
       <S.TextLine>
         <p>Nuvens</p>
-        <span>100%</span>
+        <span>{`${clouds}%`}</span>
       </S.TextLine>
 
       <S.TextLine>
         <p>Precipitação</p>
-        <span>100%</span>
+        <span>{`${pop}%`}</span>
       </S.TextLine>
 
       <S.TextLine>
         <p>Humidade</p>
-        <span>100%</span>
+        <span>{`${humidity}%`}</span>
       </S.TextLine>
 
       <S.TextLine>
         <p>Vento</p>
-        <span>100%</span>
+        <span>{`${(wind_speed * 3.6).toFixed(1)} km/h`}</span>
+      </S.TextLine>
+
+      <S.TextLine>
+        <p>Índice UV</p>
+        <span>{`${uvi}`}</span>
       </S.TextLine>
     </>
   );
