@@ -9,7 +9,7 @@ import { ICurrentWeather, TWeather } from "../../../types/wheatherData";
 
 export type WeatherCardProps = {
   weather: TWeather;
-  temp: number;
+  temp?: number;
   hoverEffect?: boolean;
   inline?: boolean;
 };
