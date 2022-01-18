@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useState, useEffect } from "react";
+import React, { createContext, useMemo, useState, useEffect,useCallback } from "react";
 import useSWR, { SWRResponse } from "swr";
 import dayjs from "dayjs";
 import { fetcher } from "../../services/api";
@@ -19,12 +19,18 @@ type TPropsContext = {
   weatherCurrent: TCurrentWeatherFormat;
   weatherDaily: Array<TDailyWeatherFormat>;
   getWeatherCurrentWithDaily:TWeatherCurrentWithDaily ;
+  selectedDay:String;
+  setSelectedDay:Function;
+  handleGetDayWeather:Function;
 };
 
 const DefaultValue = {
   weatherCurrent: null,
   weatherDaily: null,
   getWeatherCurrentWithDaily: null,
+  selectedDay:null,
+  setSelectedDay:()=>{},
+  handleGetDayWeather:()=>{}
 };
 
 const WeatherContext = createContext<TPropsContext>(DefaultValue);
@@ -33,6 +39,7 @@ function WeatherProvider({ children }) {
   const [weatherCurrent, setWeatherCurrent] = useState<TCurrentWeatherFormat>();
   const [weatherDaily, setWeatherDaily] =
     useState<Array<TDailyWeatherFormat>>();
+  const [selectedDay,setSelectedDay] = useState<String>()
 
   const { coords, loading } = useMyGeolocation();
   const { data, error }: SWRResponse<IWeatherResponse> = useSWR(
@@ -58,14 +65,21 @@ function WeatherProvider({ children }) {
     }
   };
 
-  const getWeatherCurrentWithDaily = useMemo(() => {
-    const dailyCurrent = weatherDaily?.find(
-      (daily) => daily.dt === weatherCurrent.dt
+  const handleGetDayWeather = useCallback((dateDay:String) => {
+    const day = weatherDaily?.find(
+      (daily) => daily.dt === dateDay
     );
-    const weather = { ...weatherCurrent, ...dailyCurrent };
+    return day;
+  }, [weatherDaily]);
+
+  const getWeatherCurrentWithDaily = useMemo(() => {
+    const dailyCurrent = handleGetDayWeather(weatherCurrent?.dt)
+    const weather = { ...weatherCurrent, ...dailyCurrent, clouds:weatherCurrent?.clouds };
 
     return weather;
   }, [weatherDaily, weatherCurrent]);
+
+
 
   useEffect(() => {
     setDataWeatherCurrent();
@@ -90,8 +104,11 @@ function WeatherProvider({ children }) {
       weatherCurrent,
       weatherDaily,
       getWeatherCurrentWithDaily,
+      selectedDay,
+      setSelectedDay,
+      handleGetDayWeather
     }),
-    [weatherCurrent, weatherDaily, getWeatherCurrentWithDaily]
+    [weatherCurrent, weatherDaily, getWeatherCurrentWithDaily,selectedDay]
   );
 
   return (
