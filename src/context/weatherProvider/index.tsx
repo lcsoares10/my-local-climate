@@ -22,6 +22,7 @@ type TPropsContext = {
   selectedDay:String;
   setSelectedDay:Function;
   handleGetDayWeather:Function;
+  getDataDaySelected:Function;
 };
 
 const DefaultValue = {
@@ -30,7 +31,8 @@ const DefaultValue = {
   getWeatherCurrentWithDaily: null,
   selectedDay:null,
   setSelectedDay:()=>{},
-  handleGetDayWeather:()=>{}
+  handleGetDayWeather:()=>{},
+  getDataDaySelected:()=>{}
 };
 
 const WeatherContext = createContext<TPropsContext>(DefaultValue);
@@ -72,6 +74,13 @@ function WeatherProvider({ children }) {
     return day;
   }, [weatherDaily]);
 
+  const getDataDaySelected = useCallback(() => {
+    const day = weatherDaily?.find(
+      (daily) => daily.dt === selectedDay
+    );
+    return day;
+  }, [selectedDay]);
+
   const getWeatherCurrentWithDaily = useMemo(() => {
     const dailyCurrent = handleGetDayWeather(weatherCurrent?.dt)
     const weather = { ...weatherCurrent, ...dailyCurrent, clouds:weatherCurrent?.clouds };
@@ -106,7 +115,8 @@ function WeatherProvider({ children }) {
       getWeatherCurrentWithDaily,
       selectedDay,
       setSelectedDay,
-      handleGetDayWeather
+      handleGetDayWeather,
+      getDataDaySelected
     }),
     [weatherCurrent, weatherDaily, getWeatherCurrentWithDaily,selectedDay]
   );
