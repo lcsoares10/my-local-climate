@@ -25,7 +25,7 @@ export const WeatherCard = styled.div<WeatherCardProps>`
 export const Description = styled.div<WeatherCardProps>`
   color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ inline }) => inline && 600};
-  margin-top: -15px;
+  margin: 5px;
   order: ${({ inline }) => inline && 2};
   font-size: ${({ inline }) => (inline ? "4rem" : "1rem")};
   text-transform: capitalize;

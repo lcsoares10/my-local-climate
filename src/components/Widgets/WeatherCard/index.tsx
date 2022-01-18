@@ -5,19 +5,20 @@ import Image from "next/image";
 import { getWeatherImage } from "../../../utils/listWeatherConditions";
 
 import * as S from "./styles";
-import {  TWeather } from "../../../types/wheatherData";
+import { TWeather } from "../../../types/wheatherData";
 
 export type WeatherCardProps = {
   weather: TWeather;
   temp?: number;
   hoverEffect?: boolean;
   inline?: boolean;
+  dt?: String;
 };
 
 const WeatherCard = ({ ...props }: WeatherCardProps) => {
   const [gifWeatherImage, setGifWeatherImage] = useState("");
 
-  const { weather, temp } = props;
+  const { weather, temp, dt } = props;
 
   useEffect(() => {
     const image = getWeatherImage(weather?.id, true);
@@ -38,6 +39,7 @@ const WeatherCard = ({ ...props }: WeatherCardProps) => {
         />
       </S.IconCard>
       <S.Description {...props}>{weather?.description}</S.Description>
+      {dt && <S.Description {...props}>{dt}</S.Description>}
     </S.WeatherCard>
   );
 };

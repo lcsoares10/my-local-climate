@@ -10,12 +10,12 @@ import ImageBackgroundWeather from "../ImageBackgroundWeather";
 import {fetcher} from '../../services/api'
 
 const Main: React.FC = () => {
-  const { weatherCurrent } = useWeather();
+  const { weatherCurrent,weatherDaily } = useWeather();
   const { coords, loading } = useMyGeolocation();
   const weather = weatherCurrent?.weather[0];
   const temp = weatherCurrent?.temp;
 
-// Request for name get city
+// Request for name get city and country
 const { data, error } = useSWRImmutable(
   !loading ? `weather?lat=${coords.latitude}&lon=${coords.longitude}` : null,
   fetcher)
@@ -26,7 +26,7 @@ const { data, error } = useSWRImmutable(
         <S.Mask>
           <S.Article>
             <WheaterCard inline weather={weather} temp={temp} />
-            <ForecastNextDays>
+            <ForecastNextDays weatherDaily={weatherDaily}>
               <h4>Previsão para os proximos 4 dias</h4>
             </ForecastNextDays>
             <p>{`${data?.name}, ${data?.sys?.country}`}</p>

@@ -11,7 +11,7 @@ import {
   IDailyWeather,
 } from "../../types/wheatherData";
 
- type TDailyWeatherFormat = Omit<IDailyWeather, "dt"> & { dt: String };
+ export type TDailyWeatherFormat = Omit<IDailyWeather, "dt"> & { dt: String };
  type TCurrentWeatherFormat = Omit<ICurrentWeather, "dt"> & { dt: String };
  export type TWeatherCurrentWithDaily = TDailyWeatherFormat & Omit<TCurrentWeatherFormat,"temp" | "feels_like">
 

@@ -2,22 +2,27 @@ import React from "react";
 import * as S from "./styles";
 
 import WheaterCard from "../WeatherCard";
+import { TDailyWeatherFormat } from "../../../context/weatherProvider"
 
-const ForecastNextDays: React.FC = ({children}) => {
-  const dataTest = [1, 2, 3, 4];
+type TForecastNextDays = {
+  weatherDaily: Array<TDailyWeatherFormat>;
+};
+
+const ForecastNextDays: React.FC<TForecastNextDays> = ({
+  children,
+  weatherDaily,
+  ...props
+}) => {
   return (
     <S.ForecastNextDays>
       {children}
 
       <S.WrapperDays>
-        {dataTest.map((day) => (
+        {weatherDaily && weatherDaily.slice(0,4).map((day) => (
           <WheaterCard
-            weather={{
-              id: 200,
-              main: "Rain",
-              description: "chuva moderada",
-              icon: "10d",
-            }}
+            weather={day.weather[0]}
+            temp={day.temp.day}
+            dt={day.dt}
             hoverEffect
           />
         ))}
