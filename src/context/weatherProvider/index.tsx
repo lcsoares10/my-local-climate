@@ -13,15 +13,11 @@ import {
 
 type TDailyWeatherFormat = Omit<IDailyWeather, "dt"> & { dt: String };
 type TCurrentWeatherFormat = Omit<ICurrentWeather, "dt"> & { dt: String };
-type ExcludeCurrent = Exclude<
-  "feels_like" | "temp" | "visibility",
-  "temp" | "feels_like"
->;
 
 type TPropsContext = {
   weatherCurrent: TCurrentWeatherFormat;
   weatherDaily: Array<TDailyWeatherFormat>;
-  getWeatherCurrentWithDaily: TDailyWeatherFormat & Pick<TCurrentWeatherFormat,ExcludeCurrent>;
+  getWeatherCurrentWithDaily: TDailyWeatherFormat & Omit<TCurrentWeatherFormat,"temp" | "feels_like">;
 };
 
 const DefaultValue = {
