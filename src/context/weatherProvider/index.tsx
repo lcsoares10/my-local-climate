@@ -13,14 +13,15 @@ import {
 
 type TDailyWeatherFormat = Omit<IDailyWeather, "dt"> & { dt: String };
 type TCurrentWeatherFormat = Omit<ICurrentWeather, "dt"> & { dt: String };
+type ExcludeCurrent = Exclude<
+  "feels_like" | "temp" | "visibility",
+  "temp" | "feels_like"
+>;
 
 type TPropsContext = {
   weatherCurrent: TCurrentWeatherFormat;
   weatherDaily: Array<TDailyWeatherFormat>;
-  getWeatherCurrentWithDaily: {
-    current: TCurrentWeatherFormat;
-    daily: TDailyWeatherFormat;
-  };
+  getWeatherCurrentWithDaily: TDailyWeatherFormat & Pick<TCurrentWeatherFormat,ExcludeCurrent>;
 };
 
 const DefaultValue = {
@@ -43,7 +44,7 @@ function WeatherProvider({ children }) {
   );
 
   const setDailyWeather = () => {
-    if(!!data?.daily){
+    if (!!data?.daily) {
       const dailyFormat = data?.daily.map((daily) => {
         return { ...daily, dt: dayjs.unix(daily.dt).format("DD/MM/YYYY") };
       });
@@ -52,22 +53,21 @@ function WeatherProvider({ children }) {
   };
 
   const setDataWeatherCurrent = () => {
-    if(!!data?.current){
+    if (!!data?.current) {
       setWeatherCurrent({
         ...data?.current,
         dt: dayjs.unix(data?.current.dt).format("DD/MM/YYYY"),
       });
     }
- 
   };
 
   const getWeatherCurrentWithDaily = useMemo(() => {
-
     const dailyCurrent = weatherDaily?.find(
       (daily) => daily.dt === weatherCurrent.dt
     );
+    const weather = { ...weatherCurrent, ...dailyCurrent };
 
-    return { current: weatherCurrent, daily: dailyCurrent };
+    return weather;
   }, [weatherDaily, weatherCurrent]);
 
   useEffect(() => {

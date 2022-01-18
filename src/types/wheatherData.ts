@@ -14,21 +14,11 @@ export type TWeather = {
   main: string;
 };
 
-export interface ICurrentWeather {
-  clouds: number;
-  dew_point: number;
-  dt: number;
-  feels_like: number;
-  humidity: number;
-  pressure: number;
-  sunrise: number;
-  sunset: number;
-  temp: number;
-  uvi: number;
+export interface ICurrentWeather
+  extends Omit<IDailyWeather, "temp" | "feels_like"> {
   visibility: number;
-  weather: Array<TWeather>;
-  wind_deg: number;
-  wind_speed: number;
+  temp: number;
+  feels_like: number;
 }
 
 export interface IDailyWeather {
