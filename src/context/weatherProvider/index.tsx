@@ -49,9 +49,6 @@ function WeatherProvider({ children }) {
       });
       setWeatherDaily(dailyFormat);
     }
-
-
-
   };
 
   const setDataWeatherCurrent = () => {

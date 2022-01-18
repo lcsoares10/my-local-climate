@@ -11,7 +11,7 @@ import useMyGeolocation from "../hooks/useMyGeolocation";
 
 const Home: React.FC = () => {
   const { loading, coords } = useMyGeolocation();
-  console.log(loading);
+
   return (
     <Theme>
       <Header />

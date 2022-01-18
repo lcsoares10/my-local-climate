@@ -21,7 +21,7 @@ export type WeatherCardProps  = {
 const WeatherCard = ({ ...props }: WeatherCardProps) => {
   const [gifWeatherImage, setGifWeatherImage] = useState("");
 
-  console.log(props)
+
   const { weather } = props;
   useEffect(() => {
     const image = getWeatherImage(weather?.id,true);

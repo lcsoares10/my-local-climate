@@ -1,8 +1,7 @@
 
 import axios from 'axios'
-const urlApiWheater = process.env.NEXT_PUBLIC_URL_API || ''
-console.log(urlApiWheater)
 
+const urlApiWheater = process.env.NEXT_PUBLIC_URL_API || ''
 const appid = process.env.NEXT_PUBLIC_KEY_OPEN_WEATHER || ''
 
 const apiAxios = axios.create({
