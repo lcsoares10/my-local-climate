@@ -11,13 +11,14 @@ import {
   IDailyWeather,
 } from "../../types/wheatherData";
 
-type TDailyWeatherFormat = Omit<IDailyWeather, "dt"> & { dt: String };
-type TCurrentWeatherFormat = Omit<ICurrentWeather, "dt"> & { dt: String };
+ type TDailyWeatherFormat = Omit<IDailyWeather, "dt"> & { dt: String };
+ type TCurrentWeatherFormat = Omit<ICurrentWeather, "dt"> & { dt: String };
+ export type TWeatherCurrentWithDaily = TDailyWeatherFormat & Omit<TCurrentWeatherFormat,"temp" | "feels_like">
 
 type TPropsContext = {
   weatherCurrent: TCurrentWeatherFormat;
   weatherDaily: Array<TDailyWeatherFormat>;
-  getWeatherCurrentWithDaily: TDailyWeatherFormat & Omit<TCurrentWeatherFormat,"temp" | "feels_like">;
+  getWeatherCurrentWithDaily:TWeatherCurrentWithDaily ;
 };
 
 const DefaultValue = {
