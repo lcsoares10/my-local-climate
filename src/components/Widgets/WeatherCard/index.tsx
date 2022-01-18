@@ -13,6 +13,7 @@ export type WeatherCardProps = {
   hoverEffect?: boolean;
   inline?: boolean;
   dt?: String;
+  selected?:boolean;
 };
 
 const WeatherCard = ({ ...props }: WeatherCardProps) => {
