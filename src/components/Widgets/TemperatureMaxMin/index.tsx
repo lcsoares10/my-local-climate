@@ -1,39 +1,45 @@
 import React, { memo } from "react";
 import * as S from "./styles";
+import { TTemp } from "../../../types/wheatherData";
 
-export type TemperatureMaxMinProps = {
+export type TTemperatureMaxMin = {
   isLabel?: string;
   label?: string;
   colorMax?: string;
   colorMin?: string;
 };
+type TemperatureMaxMinProps = TTemperatureMaxMin & { temp: TTemp };
 
 function TemperatureMaxMin({
   isLabel,
   label,
   colorMax,
   colorMin,
+  temp,
   ...props
 }: TemperatureMaxMinProps) {
   return (
     <S.Container {...props}>
       {isLabel && <S.Label>{label}</S.Label>}
       <S.Content>
-        <S.Min>
-          <S.IconArrowMin colorMin={colorMin} size={50} />
-          <S.MinDetail>
-            <S.TemperatureMin colorMin={colorMin}>24</S.TemperatureMin>
-            <S.Info>min</S.Info>
-          </S.MinDetail>
-        </S.Min>
-
         <S.Max>
           <S.IconArrowMax colorMax={colorMax} size={50} />
           <S.MaxDetail>
-            <S.TemperatureMax colorMax={colorMax}>24</S.TemperatureMax>
-            <S.Info>max</S.Info>
+            <S.TemperatureMax colorMax={colorMax}>{`${temp?.max?.toFixed(
+              0
+            )}`}</S.TemperatureMax>
+            <S.Info>°C</S.Info>
           </S.MaxDetail>
         </S.Max>
+        <S.Min>
+          <S.IconArrowMin colorMin={colorMin} size={50} />
+          <S.MinDetail>
+            <S.TemperatureMin colorMin={colorMin}>{`${temp?.min?.toFixed(
+              0
+            )}`}</S.TemperatureMin>
+            <S.Info>°C</S.Info>
+          </S.MinDetail>
+        </S.Min>
       </S.Content>
     </S.Container>
   );

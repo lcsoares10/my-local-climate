@@ -5,7 +5,7 @@ import Image from "next/image";
 import { getWeatherImage } from "../../../utils/listWeatherConditions";
 
 import * as S from "./styles";
-import { ICurrentWeather, TWeather } from "../../../types/wheatherData";
+import {  TWeather } from "../../../types/wheatherData";
 
 export type WeatherCardProps = {
   weather: TWeather;

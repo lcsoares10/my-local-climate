@@ -1,12 +1,12 @@
 import styled, { CSSObject } from "styled-components";
 import { ArrowUpward } from "@styled-icons/material/ArrowUpward";
 import { ArrowDownward } from "@styled-icons/material/ArrowDownward";
-import { TemperatureMaxMinProps } from "./index";
+import { TTemperatureMaxMin } from "./index";
 
-export const IconArrowMax = styled(ArrowUpward)<TemperatureMaxMinProps>`
+export const IconArrowMax = styled(ArrowUpward)<TTemperatureMaxMin>`
   color: ${({ colorMax }) => (colorMax ? colorMax : "#F29292")} !important;
 `;
-export const IconArrowMin = styled(ArrowDownward)<TemperatureMaxMinProps>`
+export const IconArrowMin = styled(ArrowDownward)<TTemperatureMaxMin>`
   color: ${({ colorMin }) => (colorMin ? colorMin : "#78C2E1")}!important;
 `;
 
@@ -46,7 +46,7 @@ export const MaxDetail = styled.div`
 
 export const MinDetail = styled(MaxDetail)``;
 
-export const TemperatureMax = styled.span<TemperatureMaxMinProps>`
+export const TemperatureMax = styled.span<TTemperatureMaxMin>`
   font-size: 6rem !important;
   font-weight: 900;
   color: ${({ colorMax }) => (colorMax ? colorMax : "#F29292")} !important;
@@ -58,7 +58,7 @@ export const TemperatureMax = styled.span<TemperatureMaxMinProps>`
   }
 `;
 
-export const TemperatureMin = styled(TemperatureMax)<TemperatureMaxMinProps>`
+export const TemperatureMin = styled(TemperatureMax)<TTemperatureMaxMin>`
   color: ${({ colorMin }) => (colorMin ? colorMin : "#78C2E1")}!important;
 `;
 

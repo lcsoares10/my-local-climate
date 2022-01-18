@@ -11,7 +11,7 @@ import * as S from "./style";
 const Aside: React.FC = ({ children }) => {
   const {getWeatherCurrentWithDaily} = useWeather()
 
-  const { pop, uvi, clouds, humidity, wind_speed } = getWeatherCurrentWithDaily
+  const { pop, uvi, clouds, humidity, wind_speed,temp } = getWeatherCurrentWithDaily
 
 
   return (
@@ -24,7 +24,7 @@ const Aside: React.FC = ({ children }) => {
         </S.Article>
         <h3>Temperatura</h3>
         <S.Article>
-          <TemperatureMaxMin />
+          <TemperatureMaxMin temp={temp} />
         </S.Article>
       </S.Section>
     </S.Aside>
