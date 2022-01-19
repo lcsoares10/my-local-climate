@@ -25,9 +25,9 @@ const { data, error } = useSWRImmutable(
       <S.Section>
         <S.Mask>
           <S.Article>
-            <WheaterCard inline weather={weather} temp={temp} />
+            <WheaterCard  inline weather={weather} temp={temp} />
             <ForecastNextDays weatherDaily={weatherDaily}>
-              <h4>Previsão para os proximos 4 dias</h4>
+              <h4>Previsão para os proximos dias</h4>
             </ForecastNextDays>
             <p>{`${data?.name}, ${data?.sys?.country}`}</p>
           </S.Article>
