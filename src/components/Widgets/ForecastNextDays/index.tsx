@@ -31,7 +31,7 @@ const ForecastNextDays: React.FC<TForecastNextDays> = ({
 
       <S.WrapperDays>
         {weatherDaily &&
-          weatherDaily.slice(0, 4).map((day, key) => (
+          weatherDaily.map((day, key) => (
             <div
               key={"WheaterCard_" + key}
               onClick={() => setSelectedDay(day.dt)}
