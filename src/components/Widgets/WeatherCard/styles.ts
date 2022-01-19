@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { WeatherCardProps } from "./index";
 
 export const WeatherCard = styled.div<WeatherCardProps>`
+
   cursor: ${({ inline }) => !inline && "pointer"};
   display: flex;
   gap: ${({ inline }) => inline && "2rem"};
@@ -11,10 +12,10 @@ export const WeatherCard = styled.div<WeatherCardProps>`
   border: ${({ inline }) => !inline && "1px solid #7a7a7a"};
   box-shadow: ${({ inline }) => !inline && "0px 4px 4px rgba(0, 0, 0, 0.25)"};
   border-radius: 20px;
-  padding: 20px 30px;
-  margin-left: ${({ inline }) => !inline && "2rem"};
+  padding: 20px 0px;
+  /* margin-left: ${({ inline }) => !inline && "2rem"}; */
   transition: 1s;
-  flex-wrap: wrap;
+
   transform: ${({ hoverEffect, selected }) =>
     hoverEffect && selected && "scale(1.04)"};
   transition: ${({ hoverEffect, selected }) =>
@@ -27,6 +28,11 @@ export const WeatherCard = styled.div<WeatherCardProps>`
     transition: ${({ hoverEffect }) => hoverEffect && "0.5s"};
     background: ${({ hoverEffect }) => hoverEffect && "rgba(0, 0, 0, 0.5)"};
   }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+
+    gap: 0px;
+    justify-content: space-between;
+  }
 `;
 export const Description = styled.div<WeatherCardProps>`
   color: ${({ theme }) => theme.colors.white};
@@ -36,18 +42,18 @@ export const Description = styled.div<WeatherCardProps>`
   font-size: ${({ inline }) => (inline ? "4rem" : "1rem")};
   text-transform: capitalize;
   @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    font-size: 3rem !important;
+    font-size: ${({ inline }) => (inline ? "2rem !important" : "1rem !important")};
   }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    font-size: 2rem !important;
+    font-size: 0.8rem !important;
   }
 `;
 
 export const IconCard = styled.div<WeatherCardProps>`
-  width: 100%;
+  width:50%;
   max-width: ${({ inline }) => (inline ? "200px" : "120px")};
   order: ${({ inline }) => inline && 3};
-  min-width: 100px;
+  min-width: ${({ inline }) => (inline ? "50px" : "120px")};;
 `;
 
 export const ContentTemp = styled.div<WeatherCardProps>`
@@ -62,15 +68,20 @@ export const TemperatureCard = styled.p<WeatherCardProps>`
   font-size: ${({ inline }) => (inline ? "12rem" : "2rem")};
   color: ${({ theme }) => theme.colors.white};
   @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    font-size: 8rem !important;
+    font-size: ${({ inline }) => (inline ? "6rem !important" : "3rem !important")};
   }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    font-size: 5rem !important;
+
   }
+  white-space: nowrap;
 `;
 
 export const DateCurrent = styled.p<WeatherCardProps>`
   font-size: 1.2rem;
+  white-space: nowrap;
   color: ${({ theme }) => theme.colors.white};
-  margin-top: -1rem;
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    font-size: 0.8rem !important;
+  }
+  
 `;

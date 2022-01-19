@@ -22,9 +22,9 @@ const Main: React.FC = () => {
   );
 
   return (
-    <S.Main>
+    <S.Main >
       <S.Section>
-        <S.Mask>
+        <S.Content srcImg={"./rain.svg"}> 
           <S.Article>
             <WheaterCard
               inline
@@ -39,8 +39,8 @@ const Main: React.FC = () => {
               {data && `${data?.name}, ${data?.sys?.country}`}
             </S.localeText>
           </S.Article>
-        </S.Mask>
-        <ImageBackgroundWeather id_weather={weather?.id} />
+        </S.Content>
+        {/* {window && (window.innerWidth >700 && <ImageBackgroundWeather id_weather={weather?.id} />)} */}
       </S.Section>
     </S.Main>
   );

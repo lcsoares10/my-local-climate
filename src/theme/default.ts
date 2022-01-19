@@ -32,6 +32,6 @@ export const defaultTheme: DefaultTheme = {
   },
   media: {
     tablet: "800px",
-    mobile: "400px",
+    mobile: "450px",
   },
 };

@@ -10,27 +10,45 @@ export const Main = styled.div`
 export const Section = styled.div`
   position: relative;
   width: 100%;
-  height: calc(100vh - 35px);
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    height: 55vh;
+
+  @media (min-width: ${({ theme }) => theme.media.tablet}) {
+    height: calc(100vh - 35px);
   }
 `;
 
-export const Mask = styled.div`
+type TContentProps = {
+  srcImg:string
+}
+export const Content = styled.div<TContentProps>`
+
   width: 100%;
-  height: calc(100vh - 35px);
-  position: absolute;
-  z-index: 1;
+  background: ${({srcImg})=> ` url(${srcImg})`};
   background-color: rgba(0, 0, 0, 0.6);
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    height: 55vh;
+  background-blend-mode:color;
+  overflow:auto ;
+  z-index: 1;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+
+  
+
+  @media (min-width: ${({ theme }) => theme.media.tablet}) {
+    height: calc(100vh - 35px);
+    position: absolute;
+    
   }
+
 `;
 export const Article = styled.div`
   padding: 20px;
-  position: absolute;
+
   bottom: 0px;
   width: 100%;
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+    position: relative; 
+
+  }
 `;
 
 export const localeText = styled.p`
