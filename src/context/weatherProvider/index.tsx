@@ -104,12 +104,15 @@ function WeatherProvider({ children }) {
     setDateCurrentWeather(
       dayjs.unix(data?.current.dt).format("DD/MM/YYYY HH:mm")
     );
-  }, [weatherCurrent]);
+  }, [data?.current.dt]);
+
+  useEffect(()=>{
+    setSelectedDay(weatherCurrent?.dt);
+  },[weatherCurrent?.dt])
 
   useEffect(() => {
     setDataWeatherCurrent();
     setDailyWeather();
-    setSelectedDay(weatherCurrent?.dt);
     formatDateCurrentWheater();
   }, [data]);
 
