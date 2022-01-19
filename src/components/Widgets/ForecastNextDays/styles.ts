@@ -17,7 +17,7 @@ export const WrapperDays = styled.div`
   display: grid;
   align-items: center;
   /* grid-template-columns: repeat(2,150px); */
-  grid-template-columns: repeat(auto-fill,300px);
+  grid-template-columns: repeat(auto-fill,280px);
   grid-gap:  1rem;
   margin-top: 2rem;
 

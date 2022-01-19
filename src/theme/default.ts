@@ -31,7 +31,7 @@ export const defaultTheme: DefaultTheme = {
     extra_large: "3rem",
   },
   media: {
-    tablet: "800px",
-    mobile: "450px",
+    tablet: "820px",
+    mobile: "540px",
   },
 };
