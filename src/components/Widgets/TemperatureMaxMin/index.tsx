@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import * as S from "./styles";
 import { TTemp } from "../../../types/wheatherData";
+import Skeleton from "./skeleton";
 
 export type TTemperatureMaxMin = {
   isLabel?: string;
@@ -18,6 +19,15 @@ function TemperatureMaxMin({
   temp,
   ...props
 }: TemperatureMaxMinProps) {
+
+  if (!temp) {
+    return (
+      <>
+        <Skeleton></Skeleton>
+      </>
+    );
+  }
+
   return (
     <S.Container {...props}>
       {isLabel && <S.Label>{label}</S.Label>}

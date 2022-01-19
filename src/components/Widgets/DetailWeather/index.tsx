@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 import { TWeatherCurrentWithDaily } from "../../../context/weatherProvider";
+import Skeleton from "./skeleton";
 
 type TPropsDetailWeather = Pick<
   TWeatherCurrentWithDaily,
@@ -8,8 +9,15 @@ type TPropsDetailWeather = Pick<
 >;
 
 function DetailWeather({ ...props }: TPropsDetailWeather) {
-
   const { pop, uvi, clouds, humidity, wind_speed } = props;
+
+  if (!pop) {
+    return (
+      <>
+        <Skeleton></Skeleton>
+      </>
+    );
+  }
 
   return (
     <>
