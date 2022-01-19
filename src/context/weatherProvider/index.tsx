@@ -1,4 +1,10 @@
-import React, { createContext, useMemo, useState, useEffect,useCallback } from "react";
+import React, {
+  createContext,
+  useMemo,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import useSWR, { SWRResponse } from "swr";
 import dayjs from "dayjs";
 import { fetcher } from "../../services/api";
@@ -11,28 +17,29 @@ import {
   IDailyWeather,
 } from "../../types/wheatherData";
 
- export type TDailyWeatherFormat = Omit<IDailyWeather, "dt"> & { dt: String };
- type TCurrentWeatherFormat = Omit<ICurrentWeather, "dt"> & { dt: String };
- export type TWeatherCurrentWithDaily = TDailyWeatherFormat & Omit<TCurrentWeatherFormat,"temp" | "feels_like">
+export type TDailyWeatherFormat = Omit<IDailyWeather, "dt"> & { dt: String };
+type TCurrentWeatherFormat = Omit<ICurrentWeather, "dt"> & { dt: String };
+export type TWeatherCurrentWithDaily = TDailyWeatherFormat &
+  Omit<TCurrentWeatherFormat, "temp" | "feels_like">;
 
 type TPropsContext = {
   weatherCurrent: TCurrentWeatherFormat;
   weatherDaily: Array<TDailyWeatherFormat>;
-  getWeatherCurrentWithDaily:TWeatherCurrentWithDaily ;
-  selectedDay:String;
-  setSelectedDay:Function;
-  handleGetDayWeather:Function;
-  getDataDaySelected:Function;
+  getWeatherCurrentWithDaily: TWeatherCurrentWithDaily;
+  selectedDay: String;
+  setSelectedDay: Function;
+  handleGetDayWeather: Function;
+  getDataDaySelected: Function;
 };
 
 const DefaultValue = {
   weatherCurrent: null,
   weatherDaily: null,
   getWeatherCurrentWithDaily: null,
-  selectedDay:null,
-  setSelectedDay:()=>{},
-  handleGetDayWeather:()=>{},
-  getDataDaySelected:()=>{}
+  selectedDay: null,
+  setSelectedDay: () => {},
+  handleGetDayWeather: () => {},
+  getDataDaySelected: () => {},
 };
 
 const WeatherContext = createContext<TPropsContext>(DefaultValue);
@@ -41,7 +48,7 @@ function WeatherProvider({ children }) {
   const [weatherCurrent, setWeatherCurrent] = useState<TCurrentWeatherFormat>();
   const [weatherDaily, setWeatherDaily] =
     useState<Array<TDailyWeatherFormat>>();
-  const [selectedDay,setSelectedDay] = useState<String>()
+  const [selectedDay, setSelectedDay] = useState<String>();
 
   const { coords, loading } = useMyGeolocation();
   const { data, error }: SWRResponse<IWeatherResponse> = useSWR(
@@ -67,34 +74,34 @@ function WeatherProvider({ children }) {
     }
   };
 
-  const handleGetDayWeather = useCallback((dateDay:String) => {
-    const day = weatherDaily?.find(
-      (daily) => daily.dt === dateDay
-    );
-    return day;
-  }, [weatherDaily]);
+  const handleGetDayWeather = useCallback(
+    (dateDay: String) => {
+      const day = weatherDaily?.find((daily) => daily.dt === dateDay);
+      return day;
+    },
+    [weatherDaily]
+  );
 
   const getDataDaySelected = useCallback(() => {
-    
-    const day = weatherDaily?.find(
-      (daily) => daily.dt === selectedDay
-    );
+    const day = weatherDaily?.find((daily) => daily.dt === selectedDay);
     return day;
   }, [selectedDay]);
 
   const getWeatherCurrentWithDaily = useMemo(() => {
-    const dailyCurrent = handleGetDayWeather(weatherCurrent?.dt)
-    const weather = { ...weatherCurrent, ...dailyCurrent, clouds:weatherCurrent?.clouds };
+    const dailyCurrent = handleGetDayWeather(weatherCurrent?.dt);
+    const weather = {
+      ...weatherCurrent,
+      ...dailyCurrent,
+      clouds: weatherCurrent?.clouds,
+    };
 
     return weather;
   }, [weatherDaily, weatherCurrent]);
 
-
-
   useEffect(() => {
     setDataWeatherCurrent();
     setDailyWeather();
-    setSelectedDay(weatherCurrent?.dt)
+    setSelectedDay(weatherCurrent?.dt);
   }, [data]);
 
   useEffect(() => {
@@ -118,9 +125,9 @@ function WeatherProvider({ children }) {
       selectedDay,
       setSelectedDay,
       handleGetDayWeather,
-      getDataDaySelected
+      getDataDaySelected,
     }),
-    [weatherCurrent, weatherDaily, getWeatherCurrentWithDaily,selectedDay]
+    [weatherCurrent, weatherDaily, getWeatherCurrentWithDaily, selectedDay]
   );
 
   return (

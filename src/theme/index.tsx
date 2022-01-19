@@ -19,7 +19,7 @@ const Theme: React.FC = ({ children }) => {
           : { ...dark, ...defaultTheme }
       }
     >
-      <ButtonTheme  onClick={toggleTheme} type={themeType} />
+      <ButtonTheme onClick={toggleTheme} type={themeType} />
       {children}
     </ThemeProvider>
   );

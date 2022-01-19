@@ -19,7 +19,6 @@ function TemperatureMaxMin({
   temp,
   ...props
 }: TemperatureMaxMinProps) {
-
   if (!temp) {
     return (
       <>

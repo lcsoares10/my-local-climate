@@ -17,7 +17,6 @@ describe("Theme", () => {
   const styleDefault = window.getComputedStyle(container.querySelector("div"));
 
   it("should change the theme for dark", async () => {
-
     fireEvent.click(container.querySelector("#button_theme"));
 
     const styleCurrent = window.getComputedStyle(

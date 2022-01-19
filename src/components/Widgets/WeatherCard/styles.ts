@@ -15,9 +15,12 @@ export const WeatherCard = styled.div<WeatherCardProps>`
   margin-left: ${({ inline }) => !inline && "2rem"};
   transition: 1s;
   flex-wrap: wrap;
-  transform: ${({ hoverEffect,selected }) => hoverEffect && selected && "scale(1.04)"};
-    transition: ${({ hoverEffect,selected }) => hoverEffect && selected  && "0.5s"};
-    background: ${({ hoverEffect,selected }) => hoverEffect && selected  && "rgba(0, 0, 0, 0.5)"};
+  transform: ${({ hoverEffect, selected }) =>
+    hoverEffect && selected && "scale(1.04)"};
+  transition: ${({ hoverEffect, selected }) =>
+    hoverEffect && selected && "0.5s"};
+  background: ${({ hoverEffect, selected }) =>
+    hoverEffect && selected && "rgba(0, 0, 0, 0.5)"};
 
   &:hover {
     transform: ${({ hoverEffect }) => hoverEffect && "scale(1.04)"};
