@@ -75,6 +75,7 @@ function WeatherProvider({ children }) {
   }, [weatherDaily]);
 
   const getDataDaySelected = useCallback(() => {
+    
     const day = weatherDaily?.find(
       (daily) => daily.dt === selectedDay
     );
@@ -93,6 +94,7 @@ function WeatherProvider({ children }) {
   useEffect(() => {
     setDataWeatherCurrent();
     setDailyWeather();
+    setSelectedDay(weatherCurrent?.dt)
   }, [data]);
 
   useEffect(() => {
