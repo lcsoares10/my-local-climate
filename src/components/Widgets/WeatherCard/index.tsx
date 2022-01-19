@@ -27,7 +27,7 @@ const WeatherCard = ({ ...props }: WeatherCardProps) => {
     setGifWeatherImage(image);
   }, [weather]);
 
-  if (weather) {
+  if (!weather) {
     return <SkeletonWheaterCard {...props} />;
   }
 
