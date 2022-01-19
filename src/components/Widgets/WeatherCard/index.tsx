@@ -6,6 +6,7 @@ import { getWeatherImage } from "../../../utils/listWeatherConditions";
 
 import * as S from "./styles";
 import { TWeather } from "../../../types/wheatherData";
+import { SkeletonWheaterCard } from "./skeleton";
 
 export type WeatherCardProps = {
   weather: TWeather;
@@ -13,7 +14,7 @@ export type WeatherCardProps = {
   hoverEffect?: boolean;
   inline?: boolean;
   dt?: String;
-  selected?:boolean;
+  selected?: boolean;
 };
 
 const WeatherCard = ({ ...props }: WeatherCardProps) => {
@@ -25,6 +26,10 @@ const WeatherCard = ({ ...props }: WeatherCardProps) => {
     const image = getWeatherImage(weather?.id, true);
     setGifWeatherImage(image);
   }, [weather]);
+
+  if (weather) {
+    return <SkeletonWheaterCard {...props} />;
+  }
 
   return (
     <S.WeatherCard {...props}>

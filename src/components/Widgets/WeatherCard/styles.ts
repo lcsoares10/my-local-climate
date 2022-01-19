@@ -9,7 +9,7 @@ export const WeatherCard = styled.div<WeatherCardProps>`
   align-items: center;
   background: ${({ inline }) => !inline && "rgba(255, 255, 255, 0.08)"};
   border: ${({ inline }) => !inline && "1px solid #7a7a7a"};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: ${({ inline }) => !inline && "0px 4px 4px rgba(0, 0, 0, 0.25)"};
   border-radius: 20px;
   padding: 20px 30px;
   margin-left: ${({ inline }) => !inline && "2rem"};
