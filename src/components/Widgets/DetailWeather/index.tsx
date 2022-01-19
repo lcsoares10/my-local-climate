@@ -11,7 +11,7 @@ type TPropsDetailWeather = Pick<
 function DetailWeather({ ...props }: TPropsDetailWeather) {
   const { pop, uvi, clouds, humidity, wind_speed } = props;
 
-  if (!pop) {
+  if (!pop && !wind_speed) {
     return (
       <>
         <Skeleton></Skeleton>
