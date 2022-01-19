@@ -74,7 +74,17 @@ export const TemperatureCard = styled.p<WeatherCardProps>`
 
   }
   white-space: nowrap;
+  display:flex;
+  align-items: center;
 `;
+  export const CelsiusText = styled.span`
+
+    margin-left:2px;
+    margin-right:5px;
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: center;
+  `;
 
 export const DateCurrent = styled.p<WeatherCardProps>`
   font-size: 1.2rem;
@@ -85,3 +95,5 @@ export const DateCurrent = styled.p<WeatherCardProps>`
   }
   
 `;
+
+

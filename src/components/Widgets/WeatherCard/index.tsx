@@ -36,7 +36,7 @@ const WeatherCard = ({ ...props }: WeatherCardProps) => {
     <>
       <S.WeatherCard {...props}>
         <S.ContentTemp {...props}>
-          <S.TemperatureCard {...props}>{temp?.toFixed(0)}</S.TemperatureCard>
+          <S.TemperatureCard {...props}>{temp?.toFixed(0)}<S.CelsiusText>°C</S.CelsiusText></S.TemperatureCard>
           <S.DateCurrent {...props}>{dateCurrent}</S.DateCurrent>
         </S.ContentTemp>
 
