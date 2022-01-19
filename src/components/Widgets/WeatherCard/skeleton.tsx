@@ -17,7 +17,6 @@ export const Skeleton = (props) => (
 
 export const SkeletonWheaterCard = (props) => (
   <S.WeatherCard {...props}>
-    <S.TemperatureCard {...props}></S.TemperatureCard>
     <S.Description {...props}>
       <Skeleton></Skeleton>
     </S.Description>

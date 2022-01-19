@@ -1,8 +1,8 @@
-import React from "react";
-
 import useWeather from "../../../hooks/useWeather";
 import WheaterCard from "../WeatherCard";
 import { TDailyWeatherFormat } from "../../../context/weatherProvider";
+import SkeletonForecastNextDays from "./skeleton";
+
 import * as S from "./styles";
 
 type TForecastNextDays = {
@@ -15,10 +15,18 @@ const ForecastNextDays: React.FC<TForecastNextDays> = ({
   ...props
 }) => {
   const { setSelectedDay, selectedDay } = useWeather();
-  console.log("selectedDay=>", selectedDay);
+
+  if (!weatherDaily) {
+    return (
+      <S.ForecastNextDays {...props}>
+        {children}
+        <SkeletonForecastNextDays />
+      </S.ForecastNextDays>
+    );
+  }
 
   return (
-    <S.ForecastNextDays>
+    <S.ForecastNextDays {...props}>
       {children}
 
       <S.WrapperDays>

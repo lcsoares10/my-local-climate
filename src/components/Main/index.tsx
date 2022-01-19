@@ -30,7 +30,7 @@ const Main: React.FC = () => {
             <ForecastNextDays weatherDaily={weatherDaily}>
               <h4>Previsão para os proximos dias</h4>
             </ForecastNextDays>
-            <p>{`${data?.name}, ${data?.sys?.country}`}</p>
+            <p>{data && `${data?.name}, ${data?.sys?.country}`}</p>
           </S.Article>
         </S.Mask>
         <ImageBackgroundWeather id_weather={weather?.id} />
