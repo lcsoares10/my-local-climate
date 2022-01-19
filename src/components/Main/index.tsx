@@ -10,7 +10,7 @@ import ImageBackgroundWeather from "../ImageBackgroundWeather";
 import { fetcher } from "../../services/api";
 
 const Main: React.FC = () => {
-  const { weatherCurrent, weatherDaily } = useWeather();
+  const { weatherCurrent, weatherDaily, dateCurrentWeather } = useWeather();
   const { coords, loading } = useMyGeolocation();
   const weather = weatherCurrent?.weather[0];
   const temp = weatherCurrent?.temp;
@@ -26,11 +26,18 @@ const Main: React.FC = () => {
       <S.Section>
         <S.Mask>
           <S.Article>
-            <WheaterCard inline weather={weather} temp={temp} />
+            <WheaterCard
+              inline
+              weather={weather}
+              dateCurrent={dateCurrentWeather}
+              temp={temp}
+            />
             <ForecastNextDays weatherDaily={weatherDaily}>
               <h4>Previsão para os proximos dias</h4>
             </ForecastNextDays>
-            <p>{data && `${data?.name}, ${data?.sys?.country}`}</p>
+            <S.localeText>
+              {data && `${data?.name}, ${data?.sys?.country}`}
+            </S.localeText>
           </S.Article>
         </S.Mask>
         <ImageBackgroundWeather id_weather={weather?.id} />

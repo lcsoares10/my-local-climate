@@ -31,11 +31,12 @@ export const Article = styled.div`
   position: absolute;
   bottom: 0px;
   width: 100%;
-  p {
-    float: right;
-    font-size: 2rem;
-    font-weight: 200;
-    color: ${({ theme }) => theme.colors.white};
-    padding: 1rem;
-  }
+`;
+
+export const localeText = styled.p`
+  float: right;
+  font-size: 2rem;
+  font-weight: 200;
+  color: ${({ theme }) => theme.colors.white};
+  padding: 1rem;
 `;

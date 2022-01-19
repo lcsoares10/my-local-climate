@@ -30,6 +30,7 @@ type TPropsContext = {
   setSelectedDay: Function;
   handleGetDayWeather: Function;
   getDataDaySelected: Function;
+  dateCurrentWeather: String;
 };
 
 const DefaultValue = {
@@ -40,6 +41,7 @@ const DefaultValue = {
   setSelectedDay: () => {},
   handleGetDayWeather: () => {},
   getDataDaySelected: () => {},
+  dateCurrentWeather: null,
 };
 
 const WeatherContext = createContext<TPropsContext>(DefaultValue);
@@ -49,6 +51,7 @@ function WeatherProvider({ children }) {
   const [weatherDaily, setWeatherDaily] =
     useState<Array<TDailyWeatherFormat>>();
   const [selectedDay, setSelectedDay] = useState<String>();
+  const [dateCurrentWeather, setDateCurrentWeather] = useState<String>();
 
   const { coords, loading } = useMyGeolocation();
   const { data, error }: SWRResponse<IWeatherResponse> = useSWR(
@@ -94,14 +97,20 @@ function WeatherProvider({ children }) {
       ...dailyCurrent,
       clouds: weatherCurrent?.clouds,
     };
-
     return weather;
   }, [weatherDaily, weatherCurrent]);
+
+  const formatDateCurrentWheater = useCallback(() => {
+    setDateCurrentWeather(
+      dayjs.unix(data?.current.dt).format("DD/MM/YYYY HH:mm")
+    );
+  }, [weatherCurrent]);
 
   useEffect(() => {
     setDataWeatherCurrent();
     setDailyWeather();
     setSelectedDay(weatherCurrent?.dt);
+    formatDateCurrentWheater();
   }, [data]);
 
   useEffect(() => {
@@ -126,8 +135,15 @@ function WeatherProvider({ children }) {
       setSelectedDay,
       handleGetDayWeather,
       getDataDaySelected,
+      dateCurrentWeather,
     }),
-    [weatherCurrent, weatherDaily, getWeatherCurrentWithDaily, selectedDay]
+    [
+      weatherCurrent,
+      weatherDaily,
+      getWeatherCurrentWithDaily,
+      selectedDay,
+      dateCurrentWeather,
+    ]
   );
 
   return (

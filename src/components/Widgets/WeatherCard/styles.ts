@@ -50,15 +50,27 @@ export const IconCard = styled.div<WeatherCardProps>`
   min-width: 100px;
 `;
 
-export const TemperatureCard = styled.div<WeatherCardProps>`
-  font-weight: 300;
-  font-size: ${({ inline }) => (inline ? "10rem" : "2rem")};
-  color: ${({ theme }) => theme.colors.white};
+export const ContentTemp = styled.div<WeatherCardProps>`
   order: ${({ inline }) => inline && 1};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const TemperatureCard = styled.p<WeatherCardProps>`
+  font-weight: 300;
+  font-size: ${({ inline }) => (inline ? "12rem" : "2rem")};
+  color: ${({ theme }) => theme.colors.white};
   @media (max-width: ${({ theme }) => theme.media.tablet}) {
     font-size: 8rem !important;
   }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 5rem !important;
   }
+`;
+
+export const DateCurrent = styled.p<WeatherCardProps>`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  margin-top: -1rem;
 `;
