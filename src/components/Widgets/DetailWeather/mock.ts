@@ -7,3 +7,12 @@ export const mockDetailWheater = {
   humidity: 0,
   uvi: 70,
 };
+
+export const mockDetailWheaterEmpty = {
+  clouds: null,
+  pop: null,
+  wind_speed: null,
+  humidity: null,
+  uvi: null,
+};
+

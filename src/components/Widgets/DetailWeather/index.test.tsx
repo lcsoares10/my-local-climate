@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Theme from "../../../theme";
 import DetailWeather from ".";
-import { mockDetailWheater } from "./mock";
+import { mockDetailWheater,mockDetailWheaterEmpty } from "./mock";
 
 describe("<DetailWeather />", () => {
   it("should view in display weather details", async () => {
@@ -36,7 +36,7 @@ describe("<DetailWeather />", () => {
   it("should view in display skeleton", async () => {
     const { container, debug } = render(
       <Theme>
-        <DetailWeather />
+        <DetailWeather {...mockDetailWheaterEmpty} />
       </Theme>
     );
 
