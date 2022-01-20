@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TemperatureMaxMin /> should view in display a temperature max and min 1`] = `
+<div
+  class="sc-bdvvtL khGXNt"
+  id="button_theme"
+  type="light"
+>
+  <svg
+    aria-hidden="true"
+    class="StyledIconBase-ea9ulj-0 bsimgx"
+    color="rgb(38,38,38)"
+    fill="currentColor"
+    focusable="false"
+    height="30"
+    viewBox="0 0 24 24"
+    width="30"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      fill="none"
+      height="24"
+      width="24"
+    />
+    <path
+      d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"
+    />
+  </svg>
+</div>
+`;

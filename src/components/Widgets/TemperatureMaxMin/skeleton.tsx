@@ -3,6 +3,7 @@ import ContentLoader from "react-content-loader";
 
 const Skeleton = (props) => (
   <ContentLoader
+    data-testid="skeleton-temp-max-min"
     speed={2}
     width="100%"
     viewBox="0 0 400 280"
