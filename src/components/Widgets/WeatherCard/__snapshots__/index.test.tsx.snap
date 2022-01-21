@@ -1,49 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TemperatureMaxMin /> should view in display card  1`] = `
-<div
-  class="sc-gsDKAQ kbxlIX"
-  data-testid="weather-card"
->
-  <div
-    class="sc-eCImPb jxCXp"
-  >
-    <p
-      class="sc-jRQBWg pXzDR"
-    >
-      25
-      <span
-        class="sc-gKclnd iiOJEI"
-      >
-        °C
-      </span>
-    </p>
-    <p
-      class="sc-iCfMLu cJUUDS"
-    />
-  </div>
-  <div
-    class="sc-hKwDye eihmtv"
-  >
-    <div
-      data-testid="image-mock"
-    >
-      'image'
-    </div>
-  </div>
-  <div
-    class="sc-dkPtRN jcExSA"
-  >
-    Chuva leve
-  </div>
-  <div
-    class="sc-dkPtRN jcExSA"
-  >
-    21/01/2022
-  </div>
-</div>
-`;
-
 exports[`<TemperatureMaxMin /> should view in display inline  1`] = `
 <div
   class="sc-gsDKAQ kQPEAc"
