@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ForecastNextDays /> should view in display skeleton 1`] = `
+exports[`<ForecastNextDays /> should view a title and two cards  1`] = `
 <div
   class="sc-bdvvtL khGXNt"
   id="button_theme"
