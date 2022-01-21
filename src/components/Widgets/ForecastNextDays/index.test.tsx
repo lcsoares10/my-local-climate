@@ -16,7 +16,7 @@ describe("<ForecastNextDays />", () => {
     expect(screen.getByTestId("skeleton-wrapper-days")).toBeTruthy();
   });
 
-  it("should view in display skeleton", async () => {
+  it("should view a title and two cards ", async () => {
 
 
     const {container}=render(
