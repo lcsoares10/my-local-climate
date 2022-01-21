@@ -34,7 +34,7 @@ const WeatherCard = ({ ...props }: WeatherCardProps) => {
 
   return (
     <>
-      <S.WeatherCard {...props}>
+      <S.WeatherCard {...props} data-testid="weather-card">
         <S.ContentTemp {...props}>
           <S.TemperatureCard {...props}>{temp?.toFixed(0)}<S.CelsiusText>°C</S.CelsiusText></S.TemperatureCard>
           <S.DateCurrent {...props}>{dateCurrent}</S.DateCurrent>
