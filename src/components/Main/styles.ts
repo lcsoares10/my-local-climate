@@ -34,7 +34,7 @@ export const Content = styled.div<TContentProps>`
   
 
   @media (min-width: ${({ theme }) => theme.media.tablet}) {
-    height: calc(100vh - 35px);
+
     position: absolute;
     
   }
