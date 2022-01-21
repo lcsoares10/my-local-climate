@@ -32,7 +32,7 @@ export interface IDailyWeather {
   moonset: number;
   pop: number;
   pressure: number;
-  rain: number;
+  rain?: number;
   sunrise: number;
   sunset: number;
   temp: TTemp;

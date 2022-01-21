@@ -19,7 +19,6 @@ const ForecastNextDays: React.FC<TForecastNextDays> = ({
   if (!weatherDaily) {
     return (
       <S.ForecastNextDays {...props}>
-        {children}
         <SkeletonForecastNextDays />
       </S.ForecastNextDays>
     );
@@ -34,7 +33,8 @@ const ForecastNextDays: React.FC<TForecastNextDays> = ({
           weatherDaily.map((day, key) => (
             <div
               key={"WheaterCard_" + key}
-              onClick={() => setSelectedDay(day.dt)}
+              onClick={() => setSelectedDay()}
+              data-testid={"wheater-card-container"}
             >
               <WheaterCard
                 weather={day.weather[0]}
