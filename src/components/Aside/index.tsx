@@ -14,6 +14,8 @@ const Aside: React.FC = ({ children }) => {
     (selectedDay && getDataDaySelected()) || getWeatherCurrentWithDaily;
 
   return (
+    <>
+     <div style={{flex:'20%',}}/>
     <S.Aside>
       {children}
       <S.Section id="detail-weather">
@@ -30,6 +32,8 @@ const Aside: React.FC = ({ children }) => {
         </S.Article>
       </S.Section>
     </S.Aside>
+             
+              </>
   );
 };
 
