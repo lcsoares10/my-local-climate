@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import Image from "next/image";
-
+import Lottie from "react-lottie";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { getWeatherImage } from "../../../utils/listWeatherConditions";
 
 import * as S from "./styles";
@@ -36,19 +37,15 @@ const WeatherCard = ({ ...props }: WeatherCardProps) => {
     <>
       <S.WeatherCard {...props} data-testid="weather-card">
         <S.ContentTemp {...props}>
-          <S.TemperatureCard {...props}>{temp?.toFixed(0)}<S.CelsiusText>°C</S.CelsiusText></S.TemperatureCard>
+          <S.TemperatureCard {...props}>
+            {temp?.toFixed(0)}
+            <S.CelsiusText>°C</S.CelsiusText>
+          </S.TemperatureCard>
           <S.DateCurrent {...props}>{dateCurrent}</S.DateCurrent>
         </S.ContentTemp>
 
         <S.IconCard {...props}>
-          <Image
-            src={
-              gifWeatherImage
-                ? require("../../../../public/".concat(gifWeatherImage))
-                : require("../../../../public/rain.gif")
-            }
-            alt="Picture of the author"
-          />
+          <Player autoplay loop src={gifWeatherImage} />
         </S.IconCard>
         <S.Description {...props}>{weather?.description}</S.Description>
         {dt && <S.Description {...props}>{dt}</S.Description>}

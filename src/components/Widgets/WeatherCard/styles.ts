@@ -54,6 +54,9 @@ export const IconCard = styled.div<WeatherCardProps>`
   max-width: ${({ inline }) => (inline ? "200px" : "120px")};
   order: ${({ inline }) => inline && 3};
   min-width: ${({ inline }) => (inline ? "50px" : "120px")};;
+  > div{
+    min-height: 130px;
+  }
 `;
 
 export const ContentTemp = styled.div<WeatherCardProps>`
