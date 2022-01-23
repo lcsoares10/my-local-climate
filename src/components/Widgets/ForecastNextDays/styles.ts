@@ -21,7 +21,7 @@ export const WrapperDays = styled.div`
   grid-gap:  1rem;
   margin-top: 2rem;
 
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
     display: flex;
     overflow-x: scroll;
     padding: 30px;
