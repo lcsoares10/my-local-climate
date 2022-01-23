@@ -1,16 +1,24 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import useWeather from "../../hooks/useWeather";
 import useSWRImmutable from "swr/immutable";
 import useMyGeolocation from "../../hooks/useMyGeolocation";
+import { Refresh } from "@styled-icons/material/Refresh";
 import * as S from "./styles";
 import WheaterCard from "../Widgets/WeatherCard";
 import { getWeatherImage } from "../../utils/listWeatherConditions";
 import ForecastNextDays from "../Widgets/ForecastNextDays";
+import Button from "../Button";
 
 import { fetcher } from "../../services/api";
 
 const Main: React.FC = () => {
-  const { weatherCurrent, weatherDaily, dateCurrentWeather } = useWeather();
+  const {
+    weatherCurrent,
+    weatherDaily,
+    dateCurrentWeather,
+    mutate,
+    isValidating,
+  } = useWeather();
   const [urlImageBackground, setUrlImageBackground] = useState("");
   const { coords, loading } = useMyGeolocation();
   const weather = weatherCurrent?.weather[0];
@@ -28,9 +36,12 @@ const Main: React.FC = () => {
   }, [weather?.id]);
 
   return (
-    <S.Main >
+    <S.Main>
       <S.Section>
-        <S.Content srcImg={`./${urlImageBackground}`} loading={weather ? false : true }> 
+        <S.Content
+          srcImg={`./${urlImageBackground}`}
+          loading={weather ? false : true}
+        >
           <S.Article>
             <WheaterCard
               inline
@@ -41,9 +52,16 @@ const Main: React.FC = () => {
             <ForecastNextDays weatherDaily={weatherDaily}>
               <h4>Previsão para os proximos dias</h4>
             </ForecastNextDays>
-            <S.localeText>
-              {data && `${data?.name}, ${data?.sys?.country}`}
-            </S.localeText>
+            {data && (
+              <>
+                <Button onClick={() => mutate()} loading={isValidating}>
+                  <Refresh size={30} color="white" />
+                </Button>
+                <S.localeText>
+                  {`${data?.name}, ${data?.sys?.country}`}
+                </S.localeText>
+              </>
+            )}
           </S.Article>
         </S.Content>
       </S.Section>

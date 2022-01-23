@@ -2,10 +2,11 @@ import React from 'react';
 
 import * as S from "./styles";
 
-const Button: React.FC = ({children,...props}) => {
+const Button = ({children,loading,...props}) => {
   return (
       <S.Button {...props}>
-          {children}
+          {!loading &&children}
+          {loading && <S.Loading/>}
       </S.Button>
   )
 }

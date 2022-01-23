@@ -17,29 +17,25 @@ export const Section = styled.div`
 `;
 
 type TContentProps = {
-  srcImg:string
-  loading:boolean
-}
+  srcImg: string;
+  loading: boolean;
+};
 export const Content = styled.div<TContentProps>`
-
   width: 100%;
-  background: ${({srcImg})=> ` url(${srcImg})`};
+  background: ${({ srcImg }) => ` url(${srcImg})`};
   background-color: rgba(0, 0, 0, 0.6);
-  background-blend-mode:color;
-  overflow:auto ;
+  background-blend-mode: color;
+  overflow: auto;
   z-index: 1;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; 
-  height: ${({loading})=> loading && "100%"};
-  
-
+  background-size: cover;
+  height: ${({ loading }) => loading && "100%"};
+  padding-bottom: 50px;
   @media (min-width: ${({ theme }) => theme.media.tablet}) {
-
     position: absolute;
-    
+    padding-bottom: 0px;
   }
-
 `;
 export const Article = styled.div`
   padding: 20px;
@@ -47,8 +43,7 @@ export const Article = styled.div`
   bottom: 0px;
   width: 100%;
   @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    position: relative; 
-
+    position: relative;
   }
 `;
 
