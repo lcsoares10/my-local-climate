@@ -55,8 +55,14 @@ Faça um clone desse repositório e acesse o diretório:
 ```bash
 $ git clone https://github.com/lcsoares10/my-local-weather.git && cd my-local-weather
 ```
-Instale os pacotes e execute o projeto:
+Defina as varáveis de ambiente, voce vai precisar do endpoint da api e a sua key de acesso do openweather:
 
+```bash
+NEXT_PUBLIC_KEY_OPEN_WEATHER= AQUI COLOQUE SUA KEY
+# Para funcionar corretamente a URL deve ser definida exatamente como abaixo
+NEXT_PUBLIC_URL_API=https://api.openweathermap.org/data/2.5/
+```
+Instale os pacotes e execute o projeto:
 ```bash
 # Instalando os pacotes do package.json
 $ yarn install
