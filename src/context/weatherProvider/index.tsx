@@ -31,6 +31,8 @@ type TPropsContext = {
   handleGetDayWeather: Function;
   getDataDaySelected: Function;
   dateCurrentWeather: String;
+  mutate: Function;
+  isValidating: Boolean;
 };
 
 const DefaultValue = {
@@ -42,6 +44,8 @@ const DefaultValue = {
   handleGetDayWeather: () => {},
   getDataDaySelected: () => {},
   dateCurrentWeather: null,
+  mutate: () => {},
+  isValidating: null,
 };
 
 const WeatherContext = createContext<TPropsContext>(DefaultValue);
@@ -54,10 +58,14 @@ function WeatherProvider({ children }) {
   const [dateCurrentWeather, setDateCurrentWeather] = useState<String>();
 
   const { coords, loading } = useMyGeolocation();
-  const { data, error }: SWRResponse<IWeatherResponse> = useSWR(
-    !loading ? `onecall?lat=${coords.latitude}&lon=${coords.longitude}` : null,
-    fetcher
-  );
+
+  const { data, error, mutate, isValidating }: SWRResponse<IWeatherResponse> =
+    useSWR(
+      !loading
+        ? `onecall?lat=${coords.latitude}&lon=${coords.longitude}`
+        : null,
+      fetcher
+    );
 
   const setDailyWeather = () => {
     if (!!data?.daily) {
@@ -106,9 +114,9 @@ function WeatherProvider({ children }) {
     );
   }, [data?.current.dt]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setSelectedDay(weatherCurrent?.dt);
-  },[weatherCurrent?.dt])
+  }, [weatherCurrent?.dt]);
 
   useEffect(() => {
     setDataWeatherCurrent();
@@ -129,6 +137,19 @@ function WeatherProvider({ children }) {
       });
   }, [error]);
 
+  useEffect(() => {
+    if (isValidating && !error && data)
+      toast.success("Os dados foram atualizados com sucesso!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+  }, [isValidating]);
+
   const value = useMemo(
     () => ({
       weatherCurrent,
@@ -139,6 +160,8 @@ function WeatherProvider({ children }) {
       handleGetDayWeather,
       getDataDaySelected,
       dateCurrentWeather,
+      mutate,
+      isValidating,
     }),
     [
       weatherCurrent,
@@ -146,6 +169,7 @@ function WeatherProvider({ children }) {
       getWeatherCurrentWithDaily,
       selectedDay,
       dateCurrentWeather,
+      isValidating,
     ]
   );
 
