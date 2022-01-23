@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Image from "next/image";
-import Lottie from "react-lottie";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { getWeatherImage } from "../../../utils/listWeatherConditions";
 

@@ -1,10 +1,4 @@
 import "@testing-library/jest-dom/extend-expect";
-jest.mock("next/image", () => ({
-  __esModule: true,
-  default: () => {
-    return <div data-testid="image-mock">'image'</div>;
-  },
-}));
 
 jest.mock("./src/hooks/useMyGeolocation", () => ({
   __esModule: true,
@@ -16,3 +10,11 @@ jest.mock("./src/hooks/useMyGeolocation", () => ({
     loading: false,
   }),
 }));
+
+jest.mock("@lottiefiles/react-lottie-player", () => ({
+  __esModule: true,
+  Player: () => {
+    return <div data-testid=" lottie-mock">Mock Lottie</div>;
+  },
+}));
+

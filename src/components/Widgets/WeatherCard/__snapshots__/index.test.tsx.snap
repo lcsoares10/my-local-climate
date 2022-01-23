@@ -25,12 +25,12 @@ exports[`<TemperatureMaxMin /> should view in display inline  1`] = `
     </p>
   </div>
   <div
-    class="sc-hKwDye cgJYUD"
+    class="sc-hKwDye fRzwDB"
   >
     <div
-      data-testid="image-mock"
+      data-testid=" lottie-mock"
     >
-      'image'
+      Mock Lottie
     </div>
   </div>
   <div

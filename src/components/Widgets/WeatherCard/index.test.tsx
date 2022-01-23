@@ -27,7 +27,7 @@ describe("<TemperatureMaxMin />", () => {
     );
 
     expect(screen.getByText(`${weatherMock.description}`)).toBeInTheDocument();
-    expect(screen.getByTestId("image-mock")).toBeInTheDocument();
+    expect(screen.getByTestId("lottie-mock")).toBeInTheDocument();
     expect(screen.getByText(`${tempMock.toFixed(0)}`)).toBeInTheDocument();
     expect(screen.getByText(`°C`)).toBeInTheDocument();
     expect(screen.getByText(dateCurrentMock)).toBeInTheDocument();
@@ -46,7 +46,7 @@ describe("<TemperatureMaxMin />", () => {
     );
 
     expect(screen.getByText(`${weatherMock.description}`)).toBeInTheDocument();
-    expect(screen.getByTestId("image-mock")).toBeInTheDocument();
+    expect(screen.getByTestId("lottie-mock")).toBeInTheDocument();
     expect(screen.getByText(`${tempMock.toFixed(0)}`)).toBeInTheDocument();
     expect(screen.getByText(`°C`)).toBeInTheDocument();
     expect(screen.getByText(dtMock)).toBeInTheDocument();
