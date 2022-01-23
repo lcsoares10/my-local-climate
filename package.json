@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watchAll",
+    "testAll": "jest --watchAll",
+    "test": "jest --watch",
     "lint": "prettier --check .",
     "format": "prettier --write .",
     "prepare": "husky install",
@@ -36,6 +37,7 @@
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "3.3.0",
     "husky": "^7.0.4",
+    "jest-styled-components": "^7.0.8",
     "prettier": "^2.5.1"
   },
   "config": {

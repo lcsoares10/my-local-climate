@@ -16,10 +16,12 @@ const Aside: React.FC = ({ children }) => {
   return (
     <S.Aside>
       {children}
-      <S.Section>
+      <S.Section id="detail-weather">
         <h2>Detalhes Climaticos</h2>
         <S.Article>
+
           <DetailWeather {...{ pop, uvi, clouds, humidity, wind_speed }} />
+          
         </S.Article>
 
         <h3>Temperatura</h3>

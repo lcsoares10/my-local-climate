@@ -18,6 +18,7 @@ export const Section = styled.div`
 
 type TContentProps = {
   srcImg:string
+  loading:boolean
 }
 export const Content = styled.div<TContentProps>`
 
@@ -30,7 +31,7 @@ export const Content = styled.div<TContentProps>`
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; 
-
+  height: ${({loading})=> loading && "100%"};
   
 
   @media (min-width: ${({ theme }) => theme.media.tablet}) {

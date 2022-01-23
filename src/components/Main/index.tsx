@@ -1,16 +1,17 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import useWeather from "../../hooks/useWeather";
 import useSWRImmutable from "swr/immutable";
 import useMyGeolocation from "../../hooks/useMyGeolocation";
 import * as S from "./styles";
 import WheaterCard from "../Widgets/WeatherCard";
-
+import { getWeatherImage } from "../../utils/listWeatherConditions";
 import ForecastNextDays from "../Widgets/ForecastNextDays";
-import ImageBackgroundWeather from "../ImageBackgroundWeather";
+
 import { fetcher } from "../../services/api";
 
 const Main: React.FC = () => {
   const { weatherCurrent, weatherDaily, dateCurrentWeather } = useWeather();
+  const [urlImageBackground, setUrlImageBackground] = useState("");
   const { coords, loading } = useMyGeolocation();
   const weather = weatherCurrent?.weather[0];
   const temp = weatherCurrent?.temp;
@@ -21,10 +22,15 @@ const Main: React.FC = () => {
     fetcher
   );
 
+  useEffect(() => {
+    const image = getWeatherImage(weather?.id);
+    setUrlImageBackground(image);
+  }, [weather?.id]);
+
   return (
     <S.Main >
       <S.Section>
-        <S.Content srcImg={"./rain.svg"}> 
+        <S.Content srcImg={`./${urlImageBackground}`} loading={weather ? false : true }> 
           <S.Article>
             <WheaterCard
               inline
@@ -40,7 +46,6 @@ const Main: React.FC = () => {
             </S.localeText>
           </S.Article>
         </S.Content>
-        {/* {window && (window.innerWidth >700 && <ImageBackgroundWeather id_weather={weather?.id} />)} */}
       </S.Section>
     </S.Main>
   );
