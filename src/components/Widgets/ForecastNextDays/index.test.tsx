@@ -2,7 +2,6 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Theme from "../../../theme";
 import ForecastNextDays from ".";
 import mock from "./mock";
-import userEvent from "@testing-library/user-event";
 import  WeatherCard from "../WeatherCard"
 
 describe("<ForecastNextDays />", () => {
@@ -32,11 +31,6 @@ describe("<ForecastNextDays />", () => {
     expect(screen.getAllByTestId("wheater-card-container")).toHaveLength(2);
 
     expect(container.firstChild).toMatchSnapshot();
-
-    // const wheaterCard = screen.getAllByTestId("wheater-card-container");
-    // //wheaterCard.forEach((card) => userEvent.click(card));
-
-    // //expect(jest.spyOn(ForecastNextDays, 'teste')).toHaveBeenCalledWith("1");
   });
 
 
