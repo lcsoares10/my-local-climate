@@ -52,6 +52,13 @@ Abaixo contém a descrição das funcionalidades oferecidas no painel
 -  Botão para troca de tema , realizando a troca de tema para escuro ou claro. De acordo com o que o usuário selecionou
 -  Layout responsivo , e adaptado para uma melhor experiência do usuário em tablets e dispositivos móveis
 
+## :wrench: Melhorias e novas features
+-  Criar barra de pesquisa para busca por cidade.
+-  Melhorar a busca por localização, pois a API do Open Weather não retorna o local correto , segunda as coordenadas passadas.
+-  Exibir previsão horária do dia selecionado.
+-  Implementar sotorybook para documentar os componentes
+-  Implementar testes end-to-end
+
 ## 📥 Instalação e execução
 
 Faça um clone desse repositório e acesse o diretório:
