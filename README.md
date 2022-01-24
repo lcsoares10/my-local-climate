@@ -3,7 +3,7 @@
 
 ## Projeto
 
-A ideia principal desse projeto é ter um painel contendo as informações meterologicas atuais e dos proximos dias, utilizando da localização atual do usuário para consulta. A princial fonte de dados desse projeto vem da  [API do Open Weather](https://openweathermap.org/api)
+A ideia principal desse projeto é ter um painel contendo as informações meteorológicas  atuais e dos próximos dias, utilizando da localização atual do usuário para consulta. A princial fonte de dados desse projeto vem da  [API do Open Weather](https://openweathermap.org/api)
 
 O painel é totalmente responsivo e oferece a disponibilidade de exibição em dois temas, o dark e o light.
 
