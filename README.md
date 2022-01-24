@@ -41,7 +41,7 @@ O projeto se encontra em funcionamento nessa url https://my-local-weather.vercel
 ## :wrench: Funcionalidades
 
 Abaixo contém a descrição das funcionalidades oferecidas no painel
--  Atualização em tempo real utilizando das estratégia de revalidação de cache com SWR
+-  Atualização em tempo real utilizando da estratégia de invalidação de cache HTTP com SWR
 -  Botão de update para atualização manual 
 -  Os ícones do clima são sicronizados automaticamente de acordo com as informações retornadas da API
 -  A imagem de background é sincronizada automaticamente para mudar de acordo com o retorno da API , referente ao tempo atual
