@@ -11,6 +11,10 @@ A construção deste projeto é como forma de estudo.
 
 O projeto se encontra em funcionamento nessa url https://my-local-weather.vercel.app/, foi utilizado o ambiente da vercel devido a facilidade para subir projetos em next.js e sua fácil integração com github
 
+A interface do usuário foi toda desenvolvida usando como base o protótipo de interface feito no Figma
+
+- https://www.figma.com/file/1tvsuMloHNRxikdXF5znJ5/my-local-weather?node-id=0%3A1
+
 ## 💻 Desktop
 <h1 align="center">
    <img alt="Screen Shot 1" src="https://user-images.githubusercontent.com/25651712/150698155-ab69a3af-9c2f-4bbc-b444-725257055a7f.png" width="100%">
